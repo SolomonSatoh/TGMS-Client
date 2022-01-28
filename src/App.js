@@ -2,9 +2,9 @@ import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Staff from './pages/Staff';
-import Admin from './pages/Admin';
-import Users from './pages/Users';
+import Staff from './pages/staffComponents/Staff';
+import Admin from './pages/adminComponents/Admin';
+import Users from './pages/usercomponents/Users';
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/admin' component={Admin} />
-          <Route exact path='/staff' component={Staff} />
-          <Route exact path='/users' component={Users} />
+          <Route  path='/admin' component={Admin} />
+          <Route  path='/staff' component={Staff} />
+          <Route  path='/users' component={Users} />
 
         </Switch>
       </Router>

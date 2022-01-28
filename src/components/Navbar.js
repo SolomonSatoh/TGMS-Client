@@ -17,6 +17,7 @@ function Navbar() {
 
   const showSidebar = () => setSidebar(!sidebar);
 
+
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -34,7 +35,7 @@ function Navbar() {
                <MenuIcon onClick={showSidebar} />
             
             </IconButton>
-            <Typography variant="h6" color="inherit" component="div">
+            <Typography variant="h5" color="inherit" align="center" component="div" >
               TOLLGATE MANAGEMENT SYSTEM
             </Typography>
           </Toolbar>

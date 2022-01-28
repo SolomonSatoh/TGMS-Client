@@ -1,10 +1,11 @@
 import React from 'react';
+import SidebarAdmin from './SidebarAdmin';
 
 function Admin() {
   return (
     <div className='admin'>
-      <h1>Wlecome to admin panel </h1>
-    </div>
+       <SidebarAdmin />
+    </div> 
   );
 }
 

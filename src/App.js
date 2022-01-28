@@ -6,9 +6,11 @@ import Staff from './pages/Staff';
 import Admin from './pages/Admin';
 import Users from './pages/Users';
 
+
 function App() {
   return (
     <>
+    
       <Router>
         <Navbar />
         <Switch>
@@ -16,6 +18,7 @@ function App() {
           <Route exact path='/admin' component={Admin} />
           <Route exact path='/staff' component={Staff} />
           <Route exact path='/users' component={Users} />
+          
 
         </Switch>
       </Router>

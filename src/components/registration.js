@@ -1,145 +1,138 @@
-import React from "react";
-import { useFormik } from "formik";
-import * as yup from 'yup'
 
+import { TextField, Button, Box, Typography } from "@material-ui/core";
+import { Field, Form, Formik } from "formik";
+import { object, string } from "yup";
 
-const Registration = () => {
-    
-    //pass the useFormik() hook initial form values
-    const formik = useFormik({
-        initialValues : {
-            firstName:'',
-            lastName: '',
-            username : '',
-            email: '',
-            password : '',
-            confirmPassword: ''
-    
-        },
+const initalValues = {
+  email: "",
+  name: "",
+  password: "",
 
-        validationSchema : yup.object({
-             firstName: yup.string()
-                 .max(15, 'Must be 15 characters or less')
-                 .required('Required'),
-             lasttName: yup.string()
-                 .max(15, 'Must be 15 characters or less')
-                 .required('Required'),
-            username: yup.string()
-                 .max(20, 'Must be 20 characters or less')
-                 .required('Required'),
-            password: yup.string()
-                 .min(6, 'Must be 6 characters or more')
-                 .required('Required'),
-            confirmPassword: yup.string()
-                 .min(6, 'Must be 16 characters or more')
-                 .required('Required'),
-            email: yup.string()
-                 .email('Invalid email adress')
-                 .required('Required')
-            
-        }),
+  firstName:'',
+  lastName: '',
+  username : '',
+  email: '',
+  password : '',
+  confirmPassword: ''
+};
 
-        onSubmit: values => {
-            alert(JSON.stringify(values, null,2))
-        }
-    });
-
-    return(
-        <form onSubmit={formik.handleSubmit}>
-            <label htmlFor="firstName">First Name</label>
-            <input
-            id ="firstName"
-            type= "text"
-            // name = "firstName"
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            // value={formik.values.firstName}
-            {...formik.getFieldProps('firstName')}
-            />
-            {formik.touched.firstName && formik.errors.firstName? (
-                <div>{formik.errors.firstName}</div>
-                
-            )  : null }
-
-            <label htmlFor="lastName">Last Name</label>
-            <input
-            id ="lastName"
-            type= "text"
-            // name = "lastName"
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            // value={formik.values.lastName}
-            {...formik.getFieldProps('lastName')}
-            />
-            {formik.touched.lastName && formik.errors.lastName? (
-                <div>{formik.errors.lastName}</div>
-                
-            )  : null }
-
-            <label htmlFor="username">Username</label>
-            <input
-            id ="username"
-            type= "text"
-            // name = "username"
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            // value={formik.values.username}
-            {...formik.getFieldProps('username')}
-            />
-            {formik.touched.username && formik.errors.username? (
-                <div>{formik.errors.username}</div>
-                
-            )  : null }
-
-            <label htmlFor="email">Email</label>
-            <input
-            id ="email"
-            type= "text"
-            // name = "email"
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            // value={formik.values.email}
-            {...formik.getFieldProps('email')}
-            />
-            {formik.touched.email && formik.errors.email? (
-                <div>{formik.errors.email}</div>
-                
-            )  : null }
-
-            <label htmlFor="password">Password</label>
-            <input
-            id ="password"
-            type= "text"
-            // name = "password"
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            // value={formik.values.password}
-            {...formik.getFieldProps('password')}
+const MaterialForm = () => {
+  return (
+    <div className="MaterialForm">
+      <Typography variant="h4">
+        Registration Form
+      </Typography>
+      <Formik
+        initialValues={initalValues}
+        validationSchema={object({
+            firstName : string().required("Please enter you first name"),
+            lastName : string().required("please enter your last name"),
+            username : string().required("please enter username").min(10, "user too short"),
+            email : string().required("please enter email").email("invalid email"),
+            password : string().required("enter password").min(8,"password too short"),
+            confirmPassword : string().required("confirm your password").min(8,"password too short")
+        })}
+        onSubmit={(values, formikHelpers) => {
+          console.log(values);
+          formikHelpers.resetForm();
+        }}
+      >
+        {({ errors, isValid, touched, dirty }) => (
+          <Form>
+            <Field
+              name="firstName"
+              type="firstName"
+              as={TextField}
+              variant="outlined"
+              color="primary"
+              label="First Name"
+              fullWidth
+              error={Boolean(errors.firstName) && Boolean(touched.firstName)}
+              helperText={Boolean(touched.firstName) && errors.firstName}
             />
 
-            {formik.touched.password && formik.errors.password? (
-                <div>{formik.errors.password}</div>
-                
-            )  : null }
+            <Box height={14} />
 
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-            id ="confirmPassword"
-            type= "text"
-            // name = "confirmPassword"
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            // value={formik.values.confirmPassword}
-            {...formik.getFieldProps('confirmPassword')} //reducing boilerplate code
+            <Field
+              name="lastName"
+              type="lastName"
+              as={TextField}
+              variant="outlined"
+              color="primary"
+              label="Last Name"
+              fullWidth
+              error={Boolean(errors.lastName) && Boolean(touched.lastName)}
+              helperText={Boolean(touched.lastName) && errors.lastName}
             />
-            {formik.touched.confirmPassword && formik.errors.confirmPassword? (
-                <div>{formik.errors.confirmPassword}</div>
-                
-            )  : null }
 
+             <Box height={14} />
 
-        </form>
-    )
-}
+            <Field
+              name="username"
+              type="username"
+              as={TextField}
+              variant="outlined"
+              color="primary"
+              label="Username"
+              fullWidth
+              error={Boolean(errors.username) && Boolean(touched.username)}
+              helperText={Boolean(touched.username) && errors.username}
+            />
+            <Box height={14} />
 
-export default Registration
+            <Field
+              name="email"
+              type="email"
+              as={TextField}
+              variant="outlined"
+              color="primary"
+              label="Email"
+              fullWidth
+              error={Boolean(errors.email) && Boolean(touched.email)}
+              helperText={Boolean(touched.email) && errors.email}
+            />
+            <Box height={14} />
+
+            <Field
+              name="password"
+              type="password"
+              as={TextField}
+              variant="outlined"
+              color="primary"
+              label="Password"
+              fullWidth
+              error={Boolean(errors.password) && Boolean(touched.password)}
+              helperText={Boolean(touched.password) && errors.password}
+            />
+            <Box height={14} />
+
+            <Field
+              name="confirmPassword"
+              type="password"
+              as={TextField}
+              variant="outlined"
+              color="primary"
+              label="Confirm Password"
+              fullWidth
+              error={Boolean(errors.confirmPassword) && Boolean(touched.confirmPassword)}
+              helperText={Boolean(touched.confirmPassword) && errors.confirmPassword}
+            />
+            <Box height={14} />
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="large"
+              disabled={!isValid || !dirty}
+            >
+              Sign Up
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
+};
+
+export default MaterialForm;

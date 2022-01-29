@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 
 
 import SignInOutContainer from "./container/index"  //login and sign up forms
+import TollTable from './components/TollTable'  //Toll table with Toll Details
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';

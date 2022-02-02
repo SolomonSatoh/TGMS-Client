@@ -4,28 +4,22 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
 export const StaffSidebarData = [
-  {
-    title: 'HOME',
-    path: '/',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
-  },
+ 
   {
     title: 'USERS ENTRY',
-    path: '/profile',
+    path: '/staff/user',
     icon: <FaIcons.FaPeopleCarry />,
     cName: 'nav-text'
   },
-  
   {
     title: 'ALL ENTRIES',
-    path: '/fair',
+    path: '/staff/entry',
     icon: <IoIcons.IoMdAnalytics/>,
     cName: 'nav-text'
   },
   {
-    title: 'ONLINE USERS',
-    path: '/trans',
+    title: 'TOLLGATE CUSTOMERS',
+    path: '/staff/online',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   },

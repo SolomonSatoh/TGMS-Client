@@ -17,12 +17,11 @@ function Navbar() {
 
   const showSidebar = () => setSidebar(!sidebar);
 
-
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <Box sx={{ flexGrow: 1 }}>
-        <AppBar  position="static">
+        <AppBar  position="static" >
           <Toolbar className='navbar' variant="dense">
             <IconButton  
               className='menu-bars' 

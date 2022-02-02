@@ -16,12 +16,12 @@
   .nav-menu {
     background-color: #00CC99
     ;
-    width: 350px;
+    width: 330px;
     height: 100vh;
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 0;
+    top: 80px;
     left: -100%;
     transition: 850ms;
   }

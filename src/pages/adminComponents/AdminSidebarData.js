@@ -4,12 +4,8 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
 export const AdminSidebarData = [
-  {
-    title: 'HOME',
-    path: '/',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
-  },
+  
+
   {
     title: 'PROFILE',
     path: '/profile',
@@ -31,37 +27,36 @@ export const AdminSidebarData = [
   },
   {
     title: 'ADD STAFF',
-    path: '/addstaffs',
+    path: '/adds',
     icon: <IoIcons.IoMdPersonAdd />,
     cName: 'nav-text'
   },
   {
     title: 'STAFF DETAILS',
-    path: '/staffdetails',
+    path: '/staff',
     icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text'
   },
   {
     title: 'CUSTOMER DETAILS',
-    path: '/customerdetails',
+    path: '/customer',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   },
   {
     title: 'ONLINE TRANSTACTIONS',
     path: '/trans',
-    icon: <IoIcons.IoMdHelpCircle />,
+    icon: <IoIcons.IoMdHelpCircle />, 
     cName: 'nav-text'
   },
   {
     title: 'ENTRY DETAILS',
-    path: '/entry',
+    path: '/entrys',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   },
   {
     title: 'LOGOUT',
-    path: '/staffdetails',
     icon: <IoIcons.IoIosLogOut />,
     cName: 'nav-text'
   }

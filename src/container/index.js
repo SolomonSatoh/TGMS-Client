@@ -45,9 +45,11 @@ const handleChange = (event, newValue) => {
           onChange={handleChange}
           aria-label="disabled tabs example"
         >
-          <Tab label="Sign In" />
+
+           <Tab label="Sign Up" />
+           <Tab label="Sign In" />
          
-          <Tab label="Sign Up" />
+          
         </Tabs>
         <TabPanel value={value} index={0}>
        <Login handleChange={handleChange}/>

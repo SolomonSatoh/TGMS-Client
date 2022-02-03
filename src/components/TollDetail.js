@@ -1,7 +1,8 @@
+
 import React from 'react'
 import MaterialTable from 'material-table'
 
-const TollDetails = () => {
+const TollDetail = () => {
     const { useState } = React;
     const [selectedRow, setSelectedRow] = useState(null);
   
@@ -73,4 +74,4 @@ const TollDetails = () => {
     )
   }
 
-  export default TollDetails
+  export default TollDetail

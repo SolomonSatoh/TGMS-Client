@@ -12,13 +12,17 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 
+
+
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+
+
 
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <>
+    <div>
       <IconContext.Provider value={{ color: '#fff' }}>
         <Box sx={{ flexGrow: 1 }}>
         <AppBar  position="static" >
@@ -30,8 +34,8 @@ function Navbar() {
               size="large" 
               aria-label="menu" 
               sx={{ mr: 2 }}>
-            
-               <MenuIcon onClick={showSidebar} />
+
+               <MenuIcon  onClick={showSidebar} />
             
             </IconButton>
             <Typography variant="h5" color="inherit" component="div" >
@@ -60,7 +64,7 @@ function Navbar() {
           </ul>
         </nav>
       </IconContext.Provider>
-    </>
+    </div>
   );
 }
 

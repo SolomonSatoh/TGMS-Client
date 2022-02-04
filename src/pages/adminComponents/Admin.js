@@ -1,7 +1,6 @@
 import React from 'react';
 import SidebarAdmin from './SidebarAdmin';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import FairDetails from './FairDetails';
 import TollDetail from './TollDetail';
 import AddStaff from './AddStaff';
 import StaffDetails from './StaffDetails';

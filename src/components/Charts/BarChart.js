@@ -1,9 +1,9 @@
 
-import React from 'react'
-import { Bar, defaults } from 'react-chartjs-2'
+import React from 'react';
+import { Bar, defaults } from 'react-chartjs-2';
 
-defaults.global.tooltips.enabled = false
-defaults.global.legend.position = 'bottom'
+defaults.global.tooltips.enabled = false;
+defaults.global.legend.position = 'bottom';
 
 const BarChart = () => {
   return (
@@ -58,7 +58,7 @@ const BarChart = () => {
         }}
       />
     </div>
-  )
+  );
 }
 
-export default BarChart
+export default BarChart;

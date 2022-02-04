@@ -1,9 +1,11 @@
 import React from 'react';
+import Staff from "../.././components/Tables/Staff";
 
 function StaffDetails() {
     return (
-        <div className='home'>
-          <h1>Staff Details</h1>
+        <div className='staff'>
+          <Staff />
+          
         </div>
       );
 }

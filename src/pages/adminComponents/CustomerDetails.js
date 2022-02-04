@@ -1,9 +1,11 @@
 import React from 'react';
+import Customer from "../.././components/Tables/Customer";
+
 
 function CustomerDetails() {
   return (
     <div className='home'>
-      <h1>View all customer details</h1>
+      <Customer />
     </div>
   );
 }

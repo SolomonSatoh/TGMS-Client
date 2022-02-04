@@ -38,7 +38,7 @@ function Navbar() {
                <MenuIcon  onClick={showSidebar} />
             
             </IconButton>
-            <Typography variant="h5" color="inherit" component="div" >
+            <Typography variant="h5"  component="div" >
               TOLLGATE MANAGEMENT SYSTEM
             </Typography>
           </Toolbar>

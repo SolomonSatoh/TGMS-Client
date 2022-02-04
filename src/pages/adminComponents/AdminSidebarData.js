@@ -12,15 +12,8 @@ export const AdminSidebarData = [
     icon: <FaIcons.FaUserCog />,
     cName: 'nav-text'
   },
-  
   {
-    title: 'FARE DETAILS',
-    path: '/fair',
-    icon: <IoIcons.IoMdAnalytics/>,
-    cName: 'nav-text'
-  },
-  {
-    title: 'TOLL GATE DETAILS',
+    title: 'TOLL DETAILS',
     path: '/tolls',
     icon: <FaIcons.FaCar />,
     cName: 'nav-text'
@@ -38,21 +31,21 @@ export const AdminSidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'CUSTOMER DETAILS',
+    title: 'USER DETAILS',
     path: '/customer',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   },
   {
-    title: 'ONLINE TRANSTACTIONS',
+    title: 'STATISTICTS',
     path: '/trans',
-    icon: <IoIcons.IoMdHelpCircle />, 
+    icon: <IoIcons.IoMdStats />, 
     cName: 'nav-text'
   },
   {
-    title: 'ENTRY DETAILS',
+    title: 'CAR DETAILS',
     path: '/entrys',
-    icon: <IoIcons.IoMdHelpCircle />,
+    icon: <FaIcons.FaCar />,
     cName: 'nav-text'
   },
   {

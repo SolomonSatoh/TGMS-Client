@@ -1,9 +1,10 @@
 import React from 'react';
+import Vehicle from "../.././components/Tables/Vehicle";
 
 function EntryDetails() {
   return (
     <div className='home'>
-      <h1>View all entries</h1>
+       <Vehicle />
     </div>
   );
 }

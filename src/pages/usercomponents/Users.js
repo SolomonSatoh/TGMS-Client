@@ -1,8 +1,7 @@
 import React from 'react'
 import SidebarUser from './SidebarUser'
-import TollDetails from './TollDetails'
+import TollDetail from './TollDetail'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from '../Home';
 
 function Users() {
     return (
@@ -10,7 +9,7 @@ function Users() {
       <Router>
           <SidebarUser />
           <Switch>
-            <Route exact path='/toll' component={TollDetails} />
+            <Route exact path='/toll' component={TollDetail} />
            
            
           </Switch>

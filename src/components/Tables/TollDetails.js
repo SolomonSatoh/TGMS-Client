@@ -61,7 +61,7 @@ const TollDetails = () => {
         onRowClick={((evt, selectedRow) => setSelectedRow(selectedRow.tableData.id))}
         options={{
           rowStyle: rowData => ({
-            backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '#FFF'
+           // backgroundColor: (selectedRow === rowData.tableData.id) ? null : '#FFF'
         })
       }}
 

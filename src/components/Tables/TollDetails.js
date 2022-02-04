@@ -66,7 +66,8 @@ const TollDetails = () => {
       }}
 
       options = {{
-          exportButton : true
+          exportButton : true,
+          searchFieldAlignment : "right"
       }}
 
       

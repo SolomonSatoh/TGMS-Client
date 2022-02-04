@@ -12,8 +12,6 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 
-
-
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 

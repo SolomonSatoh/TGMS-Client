@@ -75,7 +75,12 @@ const BookingForm = ({ handleChange }) => {
                             <Field as={TextField} label='Plate Number' name="plateNumber"
                                 placeholder='Plate Number' fullWidth required
                                 helperText={<ErrorMessage name="plateNumber" />}
+                        
 
+                            />
+                             <Field as={TextField} label='Price' name="price"
+                                placeholder='Price' fullWidth required
+                                helperText={<ErrorMessage name="price" />}
                             />
                             <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting}
                                 style={btnstyle} fullWidth>{props.isSubmitting ? "Loading" : "Book Toll"}</Button>

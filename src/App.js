@@ -17,7 +17,7 @@ function App() {
           <Route  path='/admin' component={Admin} />
           <Route  path='/staff' component={Staff} />
           <Route  path='/users' component={Users} />
-          <Route path="*" component={ErrorPage} />
+          <Route  path="*" component={ErrorPage} />
         </Switch>
       </Router>
     </>

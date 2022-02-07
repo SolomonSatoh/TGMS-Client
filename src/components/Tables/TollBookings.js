@@ -10,14 +10,15 @@ const TollBookings = () => {
     const [columns, setColumns] = useState([
       { title: 'District', field: 'district' },
       { title: 'Toll Name', field: 'tollname', initialEditValue: 'initial edit value' },
+      { title: 'Registration #', field: 'Reg_number', initialEditValue: 'initial edit value' },
       { title: 'Trip Plan', field: 'trip_plan' },
     
     ]);
   
     const [data, setData] = useState([
-      { district: 'Lilongwe', tollname: 'Area 25', trip_plan: 'Return' },
-      { district: 'Blantyre', tollname: 'Chilomoni', trip_plan: 'One Way' },
-      { district: 'Zomba', tollname: 'Chirunga', trip_plan: 'Monthly' },
+      { district: 'Lilongwe', tollname: 'Area 25', Reg_number: 'BT2020', trip_plan: 'Return' },
+      { district: 'Blantyre', tollname: 'Chilomoni', Reg_number: 'LT2020', trip_plan: 'One Way' },
+      { district: 'Zomba', tollname: 'Chirunga', Reg_number: 'Mz3933', trip_plan: 'Monthly' },
       
     ]);
   

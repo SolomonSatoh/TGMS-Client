@@ -3,7 +3,7 @@ import Staff from "../.././components/Tables/Staff";
 
 function StaffDetails() {
     return (
-        <div className='staff'>
+        <div className='admins'>
           <Staff />
           
         </div>

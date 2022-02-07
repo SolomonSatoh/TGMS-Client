@@ -1,13 +1,12 @@
 import React from 'react';
-import TollBookings from "../.././components/Tables/TollBookings";
 
 
 function TollDetail() {
   
     
     return (
-        <div className='user'>
-           <TollBookings />
+        <div className='users'>
+          <h1> user booking details</h1>
         </div>
       );
 }

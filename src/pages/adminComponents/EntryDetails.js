@@ -3,7 +3,7 @@ import Vehicle from "../.././components/Tables/Vehicle";
 
 function EntryDetails() {
   return (
-    <div className='home'>
+    <div className='admins'>
        <Vehicle />
     </div>
   );

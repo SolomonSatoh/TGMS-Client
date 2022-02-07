@@ -23,7 +23,7 @@ function Navbar() {
     <div>
       <IconContext.Provider value={{ color: '#fff' }}>
         <Box sx={{ flexGrow: 1 }}>
-        <AppBar  position="static" >
+        <AppBar  >
           <Toolbar className='navbar' variant="dense">
             <IconButton  
               className='menu-bars' 

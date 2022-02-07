@@ -16,7 +16,7 @@ function SidebarAdmin() {
       <IconContext.Provider value={{ color: '#fff' }}>
        
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul className='nav-menu-items' >
+          <ul className='nav-menu-items' onClick={showSidebar}>
             
             {AdminSidebarData.map((item, index) => {
               return (

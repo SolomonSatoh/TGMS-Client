@@ -3,7 +3,7 @@ import React from 'react';
 function OnlineUsers() {
   
      return (
-        <div className='home'>
+        <div className='staffs'>
           <h1>View all tollgate customers</h1>
         </div>
       );

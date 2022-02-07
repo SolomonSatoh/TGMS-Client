@@ -6,7 +6,7 @@ import * as IoIcons from 'react-icons/io';
 export const StaffSidebarData = [
  
   {
-    title: 'USERS ENTRY',
+    title: 'USER ENTRY',
     path: '/staff/user',
     icon: <FaIcons.FaPeopleCarry />,
     cName: 'nav-text'
@@ -18,9 +18,9 @@ export const StaffSidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'TOLLGATE CUSTOMERS',
+    title: 'All USERS',
     path: '/staff/online',
-    icon: <IoIcons.IoMdHelpCircle />,
+    icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text'
   },
   {

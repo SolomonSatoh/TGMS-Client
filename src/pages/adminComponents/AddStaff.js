@@ -2,7 +2,7 @@ import React from 'react';
 
 function AddStaff() {
   return (
-    <div className='home'>
+    <div className='admins'>
       <h1>Add the  staff members</h1>
     </div>
   );

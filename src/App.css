@@ -4,8 +4,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Nunito',
+  font-family: 'Nunito';
 }
+
+.admins,
+.staffs,
+.users {
+  margin: 100px;
+  margin-right: 40px;
+  margin-left: 300px;
+  align-items: center;
+  font-size: 2rem;
+  font-family: 'Nunito';
+}
+
 
 
 .App {

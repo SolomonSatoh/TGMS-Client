@@ -3,7 +3,7 @@ import React from 'react';
 function FairDetails() {
   
     return (
-        <div className='home'>
+        <div className='admins'>
           <h1>Fair details</h1>
         </div>
       );

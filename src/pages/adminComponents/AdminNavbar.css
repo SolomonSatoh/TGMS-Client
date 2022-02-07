@@ -1,22 +1,8 @@
-.navbar {
-    background-color: #00CC99
-    ;
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  }
-  
-  .menu-bars {
-    margin-left: 2rem;
-    font-size: 2rem;
-    background: none;
-  }
-  
+
   .nav-menu {
     background-color: #00CC99
     ;
-    width: 260px;
+    width: 200px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -24,6 +10,7 @@
     top: 80px;
     left: -100%;
     transition: 850ms;
+    z-index: 8;
   }
   
   .nav-menu.active {

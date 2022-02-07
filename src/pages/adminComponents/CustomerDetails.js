@@ -4,7 +4,7 @@ import Customer from "../.././components/Tables/Customer";
 
 function CustomerDetails() {
   return (
-    <div className='home'>
+    <div className='admins'>
       <Customer />
     </div>
   );

@@ -3,7 +3,7 @@ import React from 'react';
 function UserEntry() {
   
     return (
-        <div className='home'>
+        <div className='staffs'>
           <h1>View all user entries</h1>
         </div>
       );

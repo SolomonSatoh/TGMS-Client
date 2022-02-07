@@ -4,7 +4,7 @@ import BarChart from '../.././components/Charts/BarChart';
 
 function Transactions() {
     return (
-        <div className='stats'>
+        <div className='admins'>
           <BarChart />
       
         </div>

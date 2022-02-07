@@ -1,9 +1,11 @@
 import React from 'react';
+import TollBookings from "../.././components/Tables/TollBookings";
 
 function AllEntry() {
     return (
-        <div className='home'>
-          <h1>View all tollgate entries</h1>
+        <div className='staffs'>
+          <TollBookings />
+
         </div>
       );
 }

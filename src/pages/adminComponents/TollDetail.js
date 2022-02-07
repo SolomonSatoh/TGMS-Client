@@ -3,7 +3,7 @@ import TollDetails from "../.././components/Tables/TollDetails";
 
 function TollDetail() {
     return (
-        <div className='home'>
+        <div className='admins'>
            <TollDetails />
           
         </div>

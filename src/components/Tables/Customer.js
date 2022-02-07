@@ -9,15 +9,16 @@ const Customer = () => {
   
     const [columns, setColumns] = useState([
       { title: 'Name', field: 'name' },
-      { title: 'Registration #', field: 'Reg_number', initialEditValue: 'initial edit value' },
       { title: 'Phone Number', field: 'phoneNumber' },
+      { title: 'Email', field: 'email' },
+    
     
     ]);
   
     const [data, setData] = useState([
-      { name: 'Martin', Reg_number: 'BT2020', phoneNumber: '0885121878' },
-      { name: 'Fact', Reg_number: 'LT2020', phoneNumber: '0885100000' },
-      { name: 'Chunga', Reg_number: 'Mz3933', phoneNumber: '0995121878' },
+      { name: 'Martin', phoneNumber: '0885121878', email: 'aaa@gmail.com' },
+      { name: 'Fact', phoneNumber: '0885100000', email: 'wwww@gmail.com'},
+      { name: 'Chunga', phoneNumber: '0995121878', email: 'qqq@gmail.com'},
 
     ]);
   

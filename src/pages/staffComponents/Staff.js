@@ -3,8 +3,8 @@ import AllEntry from './AllEntry';
 import OnlineUsers from './OnlineUsers';
 import SidebarStaff from './SidebarStaff';
 import UserEntry from './UserEntry';
-import Home from '../Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import StaffHome from './StaffHome';
 
 
 function Staff() {
@@ -14,6 +14,7 @@ function Staff() {
       <Router>
           <SidebarStaff />
           <Switch>
+            <Route exact path='/staff-home' component={StaffHome} />
             <Route exact path='/staff/user' component={UserEntry} />
             <Route exact path='/staff/entry' component={AllEntry} />
             <Route exact path='/staff/online' component={OnlineUsers} />

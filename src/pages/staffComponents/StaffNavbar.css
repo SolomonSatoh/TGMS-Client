@@ -1,8 +1,9 @@
 
-  .nav-menu {
-    background-color: #00CC99
+  
+  .nav-menu-staff {
+    background-color:  #4caf50;
     ;
-    width: 200px;
+    width: 240px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -13,7 +14,7 @@
     z-index: 10;
   }
   
-  .nav-menu.active {
+  .nav-menu-staff.active {
     left: 0;
     transition: 350ms;
   }

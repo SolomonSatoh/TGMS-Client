@@ -8,6 +8,8 @@ import CustomerDetails from './CustomerDetails';
 import Transactions from './Transactions';
 import EntryDetails from './EntryDetails';
 import Profile from './Profile';
+import AdminHome from './AdminHome';
+import ErrorPage from '../ErrorPage';
 
 
 
@@ -17,14 +19,15 @@ function Admin() {
       <Router>
           <SidebarAdmin />
           <Switch>
-          
-            <Route exact path='/profile' component={Profile} />
-            <Route exact path='/tolls' component={TollDetail} />
-            <Route exact path='/adds' component={AddStaff} />
-            <Route exact path='/staff' component={StaffDetails} />
-            <Route exact path='/customer' component={CustomerDetails} />
-            <Route exact path='/trans' component={Transactions} />
-            <Route exact path='/entrys' component={EntryDetails} />
+            <Route exact path='/admin-home' component={AdminHome} />
+            <Route  path='/admin/profile' component={Profile} />
+            <Route  path='/admin/tolls' component={TollDetail} />
+            <Route  path='/admin/adds' component={AddStaff} />
+            <Route  path='/admin/staff' component={StaffDetails} />
+            <Route  path='/admin/customer' component={CustomerDetails} />
+            <Route  path='/admin/trans' component={Transactions} />
+            <Route  path='/admin/entrys' component={EntryDetails} />
+            <Route  path="*" component={ErrorPage} />
 
           </Switch>
       </Router>

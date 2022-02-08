@@ -8,23 +8,25 @@ const Customer = () => {
     const [selectedRow, setSelectedRow] = useState(null);
   
     const [columns, setColumns] = useState([
-      { title: 'Name', field: 'name' },
+      { title: 'District', field: 'district' },
+      { title: 'Toll Name', field: 'tollname' },
       { title: 'Phone Number', field: 'phoneNumber' },
+      {title: 'Registration #', field: 'Reg'},
       { title: 'Email', field: 'email' },
     
     
     ]);
   
     const [data, setData] = useState([
-      { name: 'Martin', phoneNumber: '0885121878', email: 'aaa@gmail.com' },
-      { name: 'Fact', phoneNumber: '0885100000', email: 'wwww@gmail.com'},
-      { name: 'Chunga', phoneNumber: '0995121878', email: 'qqq@gmail.com'},
+      { district: 'Zomba', tollname: '3miles', phoneNumber: '0885121878', Reg: 'RT334', email: 'aaa@gmail.com' },
+      { district: 'Mzimba', tollname: 'Jandalala', phoneNumber: '0885100000', Reg: 'BB334', email: 'wwww@gmail.com'},
+      { district: 'Blantyre', tollname: 'Kameza', phoneNumber: '0995121878', Reg: 'KK334', email: 'qqq@gmail.com'},
 
     ]);
   
     return (
       <MaterialTable
-        title="Customer Details"
+        title="Customer Booking Details"
         columns={columns}
         data={data}
         editable={{

@@ -4,7 +4,12 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
 export const StaffSidebarData = [
- 
+  {
+    title: 'HOME',
+    path: '/staff-home',
+    icon: <AiIcons.AiFillHome />,
+    cName: 'nav-text'
+  },
   {
     title: 'USER ENTRY',
     path: '/staff/user',

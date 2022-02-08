@@ -2,7 +2,7 @@
   font-family: 'Nunito',
 }
 .navbar {
-  background-color: #ff9800;
+  background-color: #4caf50;
   height: 80px;
   display: flex;
   justify-content: start;
@@ -18,13 +18,12 @@
 }
 
 .nav-menu {
-  background-color:  #1976d2;
-  ;
+  background-color:  #4caf50;
+  width: 220px;
   height: 100vh;
-  display: flex;
   justify-content: center;
   position: fixed;
-  top: 0;
+  top: 80px;
   left: -100%;
   transition: 850ms;
   z-index: 12;
@@ -33,6 +32,10 @@
 .nav-menu.active {
   left: 0;
   transition: 330ms;
+}
+
+.nav-menu-items {
+  margin-top: 50px;
 }
 
 .nav-text {
@@ -57,7 +60,7 @@
 }
 
 .nav-text a:hover {
-  background-color: #1a83ff;
+  background-color: #1565c0;
 }
 
 .nav-menu-items {

@@ -1,5 +1,23 @@
 
+  .root {
+    font-family: 'Nunito',
+  }
+  .navbar {
+    background-color: #4caf50;
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-family: 'Nunito';
+    position: relative;
+    color: #fff;
+  }
   
+  .menu-bars {
+    margin-left: 2rem;
+    font-size: 3rem;
+    background: none;
+  }
   .nav-menu-staff {
     background-color:  #4caf50;
     ;

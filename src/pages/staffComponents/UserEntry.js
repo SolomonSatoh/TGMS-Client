@@ -1,10 +1,11 @@
 import React from 'react';
+import BookingForm from "../.././components/Forms/BookingForm";
 
 function UserEntry() {
   
     return (
-        <div className='staffs'>
-          <h1>View all user entries</h1>
+        <div className='forms'>
+          <BookingForm />
         </div>
       );
 }

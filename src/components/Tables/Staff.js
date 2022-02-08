@@ -9,16 +9,17 @@ const Staff = () => {
     const [selectedRow, setSelectedRow] = useState(null);
   
     const [columns, setColumns] = useState([
-      { title: 'Name', field: 'name' },
       { title: 'Toll Name', field: 'tollName', initialEditValue: 'initial edit value' },
+      { title: 'Name', field: 'name' },
+      {title: 'Email', field: 'email'},
       { title: 'Role', field: 'role' },
     
     ]);
   
     const [data, setData] = useState([
-      { name: 'Martin', tollName: 'Jenda', role: 'Admin' },
-      { name: 'Fact', tollName: 'Nkhamenya', role: 'Staff' },
-      { name: 'Chunga', tollName: 'Kameza', role: 'Admin' },
+      { tollName: 'Jenda', name: 'Martin', email:'wtywywywy@gmial.com', role: 'Admin' },
+      { tollName: 'Nkhamenya', name: 'Fact', email:'wtywywywy@gmial.com', role: 'Staff' },
+      { tollName: 'Kameza', name: 'Chunga', email:'wtywywywy@gmial.com', role: 'Admin' },
 
     ]);
   

@@ -35,7 +35,7 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export default function MultipleSelectPlaceholder() {
+export default function Selection() {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 

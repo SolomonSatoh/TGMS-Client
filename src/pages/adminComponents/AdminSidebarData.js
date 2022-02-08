@@ -4,12 +4,7 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
 export const AdminSidebarData = [
-  {
-    title: 'HOME',
-    path: '/admin-home',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
-  },
+  
   {
     title: 'PROFILE',
     path: '/admin/profile',

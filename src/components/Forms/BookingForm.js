@@ -9,14 +9,14 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { yellow } from '@material-ui/core/colors';
-import MultipleSelectPlaceholder from './selection'
+import Selection from './Selection'
 import Plan from './Plan'
 import AccType from './AccType';
 
 
 const BookingForm = ({ handleChange }) => {
 
-    const paperStyle = { padding: 30, height: '73vh', width: 300, margin: "0 auto",  }
+    const paperStyle = { padding: 80, height: '73vh', width: 500, margin: "0 auto",  }
     const avatarStyle = { backgroundColor: '#008000' }
     const btnstyle = { margin: '8px 0' }
     const initialValues = {
@@ -69,7 +69,7 @@ const BookingForm = ({ handleChange }) => {
                                 placeholder='Toll Section' fullWidth required
                                 helperText={<ErrorMessage name="email" />}
                             />
-                            < MultipleSelectPlaceholder />
+                            < Selection />
                             < Plan />
                             <AccType />
                             <Field as={TextField} label='Plate Number' name="plateNumber"

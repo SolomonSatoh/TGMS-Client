@@ -2,7 +2,7 @@ import React from 'react';
 import SidebarAdmin from './SidebarAdmin';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import TollDetail from './TollDetail';
-import AddStaff from './AddStaff';
+import AddStaffs from './AddStaffs';
 import StaffDetails from './StaffDetails';
 import CustomerDetails from './CustomerDetails';
 import Transactions from './Transactions';
@@ -12,17 +12,15 @@ import AdminHome from './AdminHome';
 import ErrorPage from '../ErrorPage';
 
 
-
 function Admin() {
   return (
-    <div className='admin'>
+    <div className='admin' >
       <Router>
           <SidebarAdmin />
           <Switch>
-            <Route exact path='/admin-home' component={AdminHome} />
             <Route  path='/admin/profile' component={Profile} />
             <Route  path='/admin/tolls' component={TollDetail} />
-            <Route  path='/admin/adds' component={AddStaff} />
+            <Route  path='/admin/adds' component={AddStaffs} />
             <Route  path='/admin/staff' component={StaffDetails} />
             <Route  path='/admin/customer' component={CustomerDetails} />
             <Route  path='/admin/trans' component={Transactions} />

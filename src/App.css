@@ -9,13 +9,18 @@
 
 .admins,
 .staffs,
-.users {
+.users
+ {
   margin: 100px;
   margin-right: 40px;
   margin-left: 250px;
   align-items: center;
   font-size: 2rem;
   font-family: 'Nunito';
+}
+
+.forms{
+  margin: 150px;
 }
 
 

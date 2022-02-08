@@ -12,7 +12,7 @@ import { yellow } from '@material-ui/core/colors';
 
 const AddStaff = ({ handleChange }) => {
 
-    const paperStyle = { padding: 30, height: '73vh', width: 300, margin: "0 auto",  }
+    const paperStyle = { padding: 30, height: '73vh', width: 600, margin: "0 auto",  }
     const avatarStyle = { backgroundColor: '#008000' }
     const btnstyle = { margin: '8px 0' }
     const initialValues = {

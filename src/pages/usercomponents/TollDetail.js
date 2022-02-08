@@ -1,12 +1,13 @@
 import React from 'react';
+import BookingForm from "../.././components/Forms/BookingForm";
 
 
 function TollDetail() {
   
     
     return (
-        <div className='users'>
-          <h1> user booking details</h1>
+        <div className='forms'>
+          <BookingForm />
         </div>
       );
 }

@@ -8,25 +8,12 @@ const useStyles = makeStyles((theme) => ({
   colorText: {
     color: '#5AFF3D',
   },
-  home: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    fontFamily: 'Nunito',
-    fontSize: '2.5rem',
+  back: {
+   
     backgroundImage: `url(${process.env.PUBLIC_URL + '/images/useer.png'})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
 
-  },
-  title: {
-    color: '#fff',
-    fontSize: '4.5rem',
-  },
-  welcome: {
-    
-    marginLeft: '300px',
   },
   
 }));
@@ -34,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 function UserHome() {
   const classes = useStyles();
   return (
-    <div className={classes.home}>
+    <div className={classes.back}>
     </div>
   );
 }

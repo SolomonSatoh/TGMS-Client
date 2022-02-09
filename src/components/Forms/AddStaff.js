@@ -14,7 +14,7 @@ const AddStaff = ({ handleChange }) => {
 
     const paperStyle = { padding: 30, height: '73vh', width: 600, margin: "0 auto",  }
     const avatarStyle = { backgroundColor: '#008000' }
-    const btnstyle = { margin: '8px 0' }
+    const btnstyle = { margin: '8px 0',backgroundColor: '#008000' }
     const initialValues = {
         username: '',
         password: '',
@@ -82,7 +82,7 @@ const AddStaff = ({ handleChange }) => {
                                 placeholder='Enter password' type='password' fullWidth required
                                 helperText={<ErrorMessage name="password" />} />
                             
-                            <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting}
+                            <Button type='submit'  variant="contained" disabled={props.isSubmitting}
                                 style={btnstyle} fullWidth>{props.isSubmitting ? "Loading" : "Add Staff"}</Button>
 
                         </Form>

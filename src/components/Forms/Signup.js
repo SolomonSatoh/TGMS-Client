@@ -3,56 +3,46 @@
 import React from 'react'
 import { Grid, Paper, Avatar, Typography, TextField, Button } from '@material-ui/core'
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
-import Radio from '@material-ui/core/Radio';
+import { Formik, Form, ErrorMessage, Field } from 'formik'
 import * as Yup from 'yup'
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import {useHistory } from 'react-router-dom';
-
 
 const Signup = () => {
     const paperStyle = { padding: 20, width: 300, margin: "0 auto" }
     const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
-    const marginTop = { marginTop: 5 }
-    let history = useHistory();
+
+    const btnstyle = { margin: '8px 0' }
     
-    // const initialValues = {
-    //     username: '',
-    //     email : '',
-    //     gender : '',
-    //     phoneNumber: '',
-    //     password: '',
-    //     confirmPassword: ''
+    const initialValues = {
+        name: '',
+        email : '',
+        phone: '',
+        password: '',
+        confirmPassword: ''
         
-    // }
-    // const validationSchema = Yup.object().shape({
-        
-    //         // firstName : string().required("Please enter you first name"),
-    //         // lastName : string().required("Please enter your last name"),
-    //         username : string().required("Please enter username").min(8, "username too short"),
-    //         email : string().required("Please enter email").email("Invalid email"),
-    //         gender : string().required("Enter your gender"),
-    //         password : string().required("Enter password").min(8,"Password too short"),
-    //         confirmPassword : string().required("Confirm your password").min(8,"Password too short")
+    }
+    const PASSWORD_REGEX = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+
+    const validationSchema = Yup.object().shape({
+        name : Yup.string().required('Required'),
+        email : Yup.string().email('Enter valid email').required('Required'),
+        phone : Yup.string().required("Required").min(10,"Phone # should contain 10 digits").max(10,"Phone # should contain 10 digits"),
+        password: Yup.string().matches(PASSWORD_REGEX,'Password must contain atleast a digit and special character').required(),
+        confirmPassword: Yup.string().when('password', {
+            is: val => ( val && val.length > 0 ? true : false),
+            then: Yup.string().oneOf([Yup.ref('password')],'Password does not match')
+        })
+    })
 
 
-    //     // username: Yup.string().email('please enter valid email').required("Required"),
-    //     // email: Yup.string().email('please enter valid email').required("Required"),
-    //     // gender: Yup.string().email('please enter valid email').required("Required"),
-    //     // password: Yup.string().required("Required").min(8,"Password should contain atleast 8 characters")
-    // })
-    // const onSubmit = (values, props) => {
-    //     console.log(values)
-    //     setTimeout(() => {
-    //         props.resetForm()
-    //         props.setSubmitting(false)
-    //     }, 2000)s
+    const onSubmit = (values, props) => {
+        console.log(values)
+        setTimeout(() => {
+            props.resetForm()
+            props.setSubmitting(false)
+        }, 2000)
 
-    // }
+    }
 
     return (
         <Grid className='login'>
@@ -64,25 +54,37 @@ const Signup = () => {
                     <h2 style={headerStyle}>Sign Up</h2>
                     <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
                 </Grid>
-                <form>
-                    <TextField fullWidth label='Name' placeholder="Enter your name" />
-                    <TextField fullWidth label='Email' placeholder="Enter your email" />
-                    <FormControl component="fieldset" style={marginTop}>
-                        <FormLabel component="legend">Gender</FormLabel>
-                        <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
-                            <FormControlLabel value="female" control={<Radio />} label="Female" />
-                            <FormControlLabel value="male" control={<Radio />} label="Male" />
-                        </RadioGroup>
-                    </FormControl>
-                    <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
-                    <TextField fullWidth label='Password' placeholder="Enter your password"/>
-                    <TextField fullWidth label='Confirm Password' placeholder="Confirm your password"/>
-                    <FormControlLabel
-                        control={<Checkbox name="checkedA" />}
-                        label="I accept the terms and conditions."
-                    />
-                    <Button type='submit' variant='contained' color='primary' onClick={() => {history.push("/");}}>Sign up</Button>
-                </form>
+
+                <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+                    {(props) => (
+                        <Form>
+                            <Field as={TextField} label='name' name="name"
+                                placeholder='Enter username' fullWidth required
+                                helperText={<ErrorMessage name="name" />}
+                            />
+                            <Field as={TextField} label='Email' name="email"
+                                placeholder='Enter Email' type='email' fullWidth required
+                                helperText={<ErrorMessage name="email" />}
+                             />
+                            <Field as={TextField} label='Phone Number' name="phone"
+                                placeholder='Enter Phone Number' type='phone' fullWidth required
+                                helperText={<ErrorMessage name="phone" />} 
+                            />
+                            <Field as={TextField} label='Password' name="password"
+                                placeholder='Enter password' type='password' fullWidth required
+                                helperText={<ErrorMessage name="password" />} 
+                            />
+                            <Field as={TextField} label='Confirm Password' name="confirmPassword"
+                                placeholder='Confirm password' type='password' fullWidth required
+                                helperText={<ErrorMessage name="confirmPassword" />} 
+                            />
+
+                            <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting}
+                                style={btnstyle} fullWidth>{props.isSubmitting ? "Loading" : "Sign Up"}</Button>
+                        </Form>
+                    )} 
+                </Formik>
+
             </Paper>
         </Grid>
     )

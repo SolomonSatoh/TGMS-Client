@@ -10,8 +10,8 @@ const Signup = () => {
     const paperStyle = { padding: 20, width: 300, margin: "0 auto" }
     const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
+
     const btnstyle = { margin: '8px 0' }
-    
     
     const initialValues = {
         name: '',
@@ -45,7 +45,7 @@ const Signup = () => {
     }
 
     return (
-        <Grid>
+        <Grid className='login'>
             <Paper style={paperStyle}>
                 <Grid align='center'>
                     <Avatar style={avatarStyle}>
@@ -54,6 +54,7 @@ const Signup = () => {
                     <h2 style={headerStyle}>Sign Up</h2>
                     <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
                 </Grid>
+
                 <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                     {(props) => (
                         <Form>
@@ -83,6 +84,7 @@ const Signup = () => {
                         </Form>
                     )} 
                 </Formik>
+
             </Paper>
         </Grid>
     )

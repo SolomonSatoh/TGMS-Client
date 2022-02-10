@@ -72,9 +72,9 @@ const Login = ({ handleChange }) => {
                 </Link>
                 </Typography>
                 <Typography > Dont have an account ?
-                     <Link href="#"  onClick ={ () =>{history.push("/sign");}} >
+                     <Link href="#"  onClick ={ () =>{history.push("/sign-up");}} >
                         Sign Up
-                </Link>
+                     </Link>
                 </Typography>
             </Paper>
         </Grid>

@@ -8,7 +8,7 @@ import Users from './pages/usercomponents/Users';
 import ErrorPage from './pages/ErrorPage';
 import Login from './components/Forms/Login';
 import LoginAdmin from './components/Forms/LoginAdmin';
-import Signup from './components/Forms/combineForms';
+import Signup from './components/Forms/Signup';
 import LoginStaff from './components/Forms/LoginStaff';
 
 
@@ -19,8 +19,8 @@ function App() {
         <Navbar />
         <Switch>
           <Route path ='/login-main' component={LoginAdmin} />
-          <Route path = '/login-satff' component={LoginStaff} />
-          <Route path ='/sign' component={Signup} />
+          <Route path = '/login-saff' component={LoginStaff} />
+          <Route path ='/sign-up' component={Signup} />
           <Route path ='/login' component={Login} />
           <Route  exact path='/' component={Home} />
           <Route  path='/admin' component={Admin} />

@@ -10,11 +10,15 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import {useHistory } from 'react-router-dom';
+
+
 const Signup = () => {
     const paperStyle = { padding: 20, width: 300, margin: "0 auto" }
     const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     const marginTop = { marginTop: 5 }
+    let history = useHistory();
     
     // const initialValues = {
     //     username: '',
@@ -46,12 +50,12 @@ const Signup = () => {
     //     setTimeout(() => {
     //         props.resetForm()
     //         props.setSubmitting(false)
-    //     }, 2000)
+    //     }, 2000)s
 
     // }
 
     return (
-        <Grid>
+        <Grid className='login'>
             <Paper style={paperStyle}>
                 <Grid align='center'>
                     <Avatar style={avatarStyle}>
@@ -77,7 +81,7 @@ const Signup = () => {
                         control={<Checkbox name="checkedA" />}
                         label="I accept the terms and conditions."
                     />
-                    <Button type='submit' variant='contained' color='primary'>Sign up</Button>
+                    <Button type='submit' variant='contained' color='primary' onClick={() => {history.push("/");}}>Sign up</Button>
                 </form>
             </Paper>
         </Grid>

@@ -1,16 +1,15 @@
-
-
-import React from 'react';
+import React from 'react'
 import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import * as IoIcons from 'react-icons/io';
 import {useHistory } from 'react-router-dom';
 
 
-const Login = ({ handleChange }) => {
+function LoginStaff() {
     
     let history = useHistory();
 
@@ -34,6 +33,7 @@ const Login = ({ handleChange }) => {
         }, 2000)
 
     }
+  
     return (
         <Grid className='login'>
             <Paper style={paperStyle}>
@@ -61,7 +61,7 @@ const Login = ({ handleChange }) => {
                                 label="Remember me"
                             />
                             <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting}
-                                style={btnstyle} fullWidth onClick ={() =>{history.push("/users");}} >{props.isSubmitting ? "Loading" : "Sign in"}</Button>
+                                style={btnstyle} fullWidth onClick ={() =>{history.push("/staff");}} > {props.isSubmitting ? "Loading" : "Sign in"}</Button>
 
                         </Form>
                     )}
@@ -71,14 +71,10 @@ const Login = ({ handleChange }) => {
                         Forgot password ?
                 </Link>
                 </Typography>
-                <Typography > Dont have an account ?
-                     <Link href="#"  onClick ={ () =>{history.push("/sign");}} >
-                        Sign Up
-                </Link>
-                </Typography>
+                
             </Paper>
         </Grid>
     )
 }
 
-export default Login
+export default LoginStaff

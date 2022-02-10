@@ -7,7 +7,7 @@ import StaffDetails from './StaffDetails';
 import CustomerDetails from './CustomerDetails';
 import Transactions from './Transactions';
 import EntryDetails from './EntryDetails';
-import Profile from './Profile';
+//import Profile from './Profile';
 import ErrorPage from '../ErrorPage';
 
 

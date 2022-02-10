@@ -13,7 +13,7 @@ const BarChart = () => {
           labels: ['Bus', 'Trucks', 'Luxury Cars', 'Minibus', 'Abnormal Truck', 'Motor Cycle'],
           datasets: [
             {
-              labels: 'Vehicle Categories',
+              label: 'Vehicle Categories',
               data: [20000, 15000, 30000, 100000, 10000, 200000],
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

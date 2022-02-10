@@ -4,13 +4,6 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
 export const AdminSidebarData = [
-  
-  {
-    title: 'PROFILE',
-    path: '/admin/profile',
-    icon: <FaIcons.FaUserCog />,
-    cName: 'nav-text'
-  },
   {
     title: 'TOLL DETAILS',
     path: '/admin/tolls',

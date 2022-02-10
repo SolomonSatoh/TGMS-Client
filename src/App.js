@@ -6,10 +6,12 @@ import Staff from './pages/staffComponents/Staff';
 import Admin from './pages/adminComponents/Admin';
 import Users from './pages/usercomponents/Users';
 import ErrorPage from './pages/ErrorPage';
+import Login from './components/Forms/Login';
+
 
 function App() {
   return (
-    <>
+    <div> 
       <Router>
         <Navbar />
         <Switch>
@@ -18,9 +20,10 @@ function App() {
           <Route  path='/staff' component={Staff} />
           <Route  path='/users' component={Users} />
           <Route  path="*" component={ErrorPage} />
+          <Route path ='/login' component={Login} />
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 

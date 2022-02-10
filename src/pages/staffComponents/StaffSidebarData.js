@@ -18,12 +18,6 @@ export const StaffSidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'All USERS',
-    path: '/staff/online',
-    icon: <IoIcons.IoMdPeople />,
-    cName: 'nav-text'
-  },
-  {
     title: 'LOGOUT',
     path: '/staffdetails',
     icon: <IoIcons.IoIosLogOut />,

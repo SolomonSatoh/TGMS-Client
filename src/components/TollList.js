@@ -19,13 +19,13 @@ import {
 
 const useStyles = makeStyles((theme) => ({
     table: {
-      minWidth: 650,
+      // minWidth: 650,
     },
     tableContainer: {
         borderRadius: 15,
-        margin: '40px',
-        marginLeft: '400px',
-        maxWidth: 950
+        // margin: '20px',
+        // marginLeft: '400px',
+        // maxWidth: 
     },
     tableHeaderCell: {
         fontWeight: 'bold',
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   
 
 let USERS = [];
-for(let i=0;i<14;i++) {
+for(let i=0;i<5;i++) {
     USERS[i] = {
         district: 'Mzimba',
         tollName: "Champhira",

@@ -16,8 +16,8 @@ const TollBookings = () => {
     ]);
   
     const [data, setData] = useState([
-      { district: 'Lilongwe', tollname: 'Area 25', Reg_number: 'BT2020', trip_plan: 'Return' },
-      { district: 'Blantyre', tollname: 'Chilomoni', Reg_number: 'LT2020', trip_plan: 'One Way' },
+      { district: 'Zomba', tollname: 'Chirunga', Reg_number: 'BT2020', trip_plan: 'Return' },
+      { district: 'Zomba', tollname: 'Chirunga', Reg_number: 'LT2020', trip_plan: 'One Way' },
       { district: 'Zomba', tollname: 'Chirunga', Reg_number: 'Mz3933', trip_plan: 'Monthly' },
       
     ]);
@@ -27,38 +27,38 @@ const TollBookings = () => {
         title="Toll Bookings"
         columns={columns}
         data={data}
-        editable={{
-          onRowAdd: newData =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                setData([...data, newData]);
+        // editable={{
+        //   onRowAdd: newData =>
+        //     new Promise((resolve, reject) => {
+        //       setTimeout(() => {
+        //         setData([...data, newData]);
                 
-                resolve();
-              }, 1000)
-            }),
-          onRowUpdate: (newData, oldData) =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                const dataUpdate = [...data];
-                const index = oldData.tableData.id;
-                dataUpdate[index] = newData;
-                setData([...dataUpdate]);
+        //         resolve();
+        //       }, 1000)
+        //     }),
+        //   onRowUpdate: (newData, oldData) =>
+        //     new Promise((resolve, reject) => {
+        //       setTimeout(() => {
+        //         const dataUpdate = [...data];
+        //         const index = oldData.tableData.id;
+        //         dataUpdate[index] = newData;
+        //         setData([...dataUpdate]);
   
-                resolve();
-              }, 1000)
-            }),
-          onRowDelete: oldData =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                const dataDelete = [...data];
-                const index = oldData.tableData.id;
-                dataDelete.splice(index, 1);
-                setData([...dataDelete]);
+        //         resolve();
+        //       }, 1000)
+        //     }),
+        //   onRowDelete: oldData =>
+        //     new Promise((resolve, reject) => {
+        //       setTimeout(() => {
+        //         const dataDelete = [...data];
+        //         const index = oldData.tableData.id;
+        //         dataDelete.splice(index, 1);
+        //         setData([...dataDelete]);
                 
-                resolve()
-              }, 1000)
-            }),
-        }}
+        //         resolve()
+        //       }, 1000)
+        //     }),
+        // }}
 
         onRowClick={((evt, selectedRow) => setSelectedRow(selectedRow.tableData.id))}
         options={{

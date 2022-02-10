@@ -6,6 +6,8 @@ import UserEntry from './UserEntry';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
+
+
 function Staff() {
   return (
     <div className='staff'>
@@ -15,7 +17,6 @@ function Staff() {
           <Switch>
             <Route exact path='/staff/user' component={UserEntry} />
             <Route exact path='/staff/entry' component={AllEntry} />
-            <Route exact path='/staff/online' component={OnlineUsers} />
           </Switch>
 
       </Router>

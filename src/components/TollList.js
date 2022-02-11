@@ -1,6 +1,7 @@
 
 
 import React from 'react';
+import {useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { 
     Table,
@@ -61,6 +62,8 @@ for(let i=0;i<5;i++) {
 }
 
 function TollList() {
+  let history = useHistory();
+
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -75,7 +78,8 @@ function TollList() {
   };
 
   return (
-    <TableContainer component={Paper} className={classes.tableContainer}>
+    
+    <TableContainer component={Paper} className={classes.tableContainer} >
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -99,7 +103,7 @@ function TollList() {
                   <Typography  variant="subtitle2">{row.tollName}</Typography>
               </TableCell>
                <TableCell>{row.roadSection}</TableCell>
-              <Button>
+              <Button onClick={() =>{history.push("/booking");}}>
                   <Typography 
                     className={classes.status}
                     style={{

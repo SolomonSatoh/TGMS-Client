@@ -2,6 +2,7 @@ import React from 'react'
 import SidebarUser from './SidebarUser'
 import TollDetail from './TollDetail'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import BookingForm from '../../components/Forms/BookingForm'; 
 
 
 function Users() {
@@ -10,6 +11,7 @@ function Users() {
       <Router>
           <SidebarUser />
           <Switch>
+            <Route path='/booking' component={BookingForm} />
             <Route path='/user/toll' component={TollDetail} />
            
            

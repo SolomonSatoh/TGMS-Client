@@ -12,9 +12,9 @@ const LoginAdmin=({ handleChange }) =>{
 
     let history = useHistory();
 
-    const paperStyle = { padding: 20, height: '73vh', width: 300, margin: "0 auto" }
+    const paperStyle = { padding: 20, width: 500, margin: "0 auto" }
     const avatarStyle = { backgroundColor: '#008000' }
-    const btnstyle = { margin: '8px 0' }
+    const btnstyle = { margin: '8px 0',backgroundColor: '#008000' }
     const initialValues = {
         username: '',
         password: '',

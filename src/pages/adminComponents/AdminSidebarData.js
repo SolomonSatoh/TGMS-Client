@@ -1,6 +1,5 @@
 import React from 'react';
 import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
 export const AdminSidebarData = [
@@ -40,10 +39,10 @@ export const AdminSidebarData = [
     icon: <FaIcons.FaCar />,
     cName: 'nav-text'
   },
-  {
-    title: 'LOGOUT',
-    icon: <IoIcons.IoIosLogOut />,
-    cName: 'nav-text'
-  }
+  // {
+  //   title: 'LOGOUT',
+  //   icon: <IoIcons.IoIosLogOut />,
+  //   cName: 'nav-text'
+  // }
 
 ];

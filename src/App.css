@@ -22,10 +22,17 @@
 .forms{
   margin: 150px;
 }
-
-.login{
+.table{
   margin: 100px;
+  margin-right: 40px;
+  margin-left: 0;
+  font-size: 2rem;
+  font-family: 'Nunito';
+}
+.login{
+  margin-top: 250px;
   max-width: 100%;
+  justify-content: center;
 }
 
 

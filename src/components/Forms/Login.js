@@ -74,7 +74,7 @@ const Login = ({ handleChange }) => {
                 <Typography > Dont have an account ?
                      <Link href="#"  onClick ={ () =>{history.push("/sign");}} >
                         Sign Up
-                </Link>
+                     </Link>
                 </Typography>
             </Paper>
         </Grid>

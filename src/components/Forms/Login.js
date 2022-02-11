@@ -61,7 +61,7 @@ const Login = ({ handleChange }) => {
                                 label="Remember me"
                             />
                             <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting}
-                                style={btnstyle} fullWidth onClick ={() =>{history.push("/users");}} >{props.isSubmitting ? "Loading" : "Sign in"}</Button>
+                                style={btnstyle} fullWidth onClick ={() =>{history.push("/users");}} >{props.isSubmitting ? "Loading..." : "Sign in"}</Button>
 
                         </Form>
                     )}

@@ -63,7 +63,7 @@ function Navbar() {
               );
             })}
             <li className='nav-text'>
-              <Link to='/login-staff' className='nav-text'>
+              <Link to="/login-staff" className='nav-text'>
                 <IoIcons.IoMdPeople />
                 <span><p>STAFF</p></span>
               </Link>

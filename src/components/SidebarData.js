@@ -15,7 +15,7 @@ export const SidebarData = [
     path: '/admin',
     icon: <FaIcons.FaUserCog />,
     cName: 'nav-text',
-  },
+  }
   
   // {
   //   title: 'STAFFS',

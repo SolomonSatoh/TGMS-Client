@@ -81,7 +81,7 @@ const Signup = () => {
                         control={<Checkbox name="checkedA" />}
                         label="I accept the terms and conditions."
                     />
-                    <Button type='submit' variant='contained' color='primary' onClick={() => {history.push("/");}}>Sign up</Button>
+                    <Button type='submit' variant='contained' color='primary' onClick={() => {history.push("login");}}>Sign up</Button>
                 </form>
             </Paper>
         </Grid>

@@ -73,7 +73,7 @@ const Signup = () => {
                                 placeholder='Enter password' type='password' fullWidth required
                                 helperText={<ErrorMessage name="password" />} 
                             />
-                            <Field as={TextField} label='Confirm Password' name="confirmPassword"
+                            <Field as={TextField}  name="confirmPassword"
                                 placeholder='Confirm password' type='password' fullWidth required
                                 helperText={<ErrorMessage name="confirmPassword" />} 
                             />

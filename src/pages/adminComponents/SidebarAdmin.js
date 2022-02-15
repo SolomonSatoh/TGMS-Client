@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import * as IoIcons from 'react-icons/io';
 import MenuIcon from '@material-ui/icons/Menu';
 
 
@@ -53,6 +54,12 @@ function SidebarAdmin() {
                 </li>
               );
             })}
+            <li className='nav-text'>
+            <Link to="/" className='nav-text'>
+              <IoIcons.IoIosLogOut />
+              <span><p>LOGOUT</p></span>
+            </Link>
+          </li>
           </ul>
         </nav>
       </IconContext.Provider>

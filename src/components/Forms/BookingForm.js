@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from '@material-ui/core'
+import { Grid, Paper, Avatar, TextField, Button} from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -18,7 +18,7 @@ const BookingForm = ({ handleChange }) => {
 
     const paperStyle = { padding: 80, height: '73vh', width: 500, margin: "0 auto",  }
     const avatarStyle = { backgroundColor: '#008000' }
-    const btnstyle = { margin: '8px 0' }
+    const btnstyle = { margin: '8px 0',backgroundColor: '#008000' }
     const initialValues = {
         district: '',
         tollName: '',
@@ -45,7 +45,7 @@ const BookingForm = ({ handleChange }) => {
 
     }
     return (
-        <Grid>
+        <Grid className='forms'>
             <Box pt={3} sx={{boxShadow: 1}} borderColor="grey">
             <Paper style={paperStyle}>
                 <Grid align='center'>

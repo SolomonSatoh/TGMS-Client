@@ -1,80 +1,68 @@
 
-
-import React from 'react';
+import React,{useState} from 'react';
 import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import {useHistory } from 'react-router-dom';
+import Axions from 'axios'
 
 
-const Login = ({ handleChange }) => {
-    
+const Login=()=>{
+
     let history = useHistory();
 
     const paperStyle = { padding: 20, width: 500, margin: "0 auto" }
     const avatarStyle = { backgroundColor: '#008000' }
     const btnstyle = { margin: '8px 0' ,backgroundColor: '#008000'}
-    const initialValues = {
-        username: '',
-        password: '',
-        remember: false
-    }
-    const validationSchema = Yup.object().shape({
-        username: Yup.string().email('please enter valid email').required("Required"),
-        password: Yup.string().required("Required").min(8,"Password should contain atleast 8 characters")
-    })
-    const onSubmit = (values, props) => {
-        console.log(values)
-        setTimeout(() => {
-            props.resetForm()
-            props.setSubmitting(false)
-        }, 2000)
+   
 
+    const [username, setUsername ] = useState("");
+    const [password, setPassword ] = useState("");
+
+    const login =() => {
+        const data = {username:username, password:password}
+        Axions.post("http://localhost:3001/users/login",data).then((response) => {
+            
+            if(response.data.error) {
+                alert(response.data.error);
+            } else {
+                sessionStorage.setItem("accessToken", response.data)
+                history.push("/users") // go to users dashboard
+            }
+          
+        })
     }
-    return (
+
+    return(
         <Grid className='login'>
-            <Paper style={paperStyle}>
+            <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
-                    <Avatar style={avatarStyle}><LockOutlinedIcon /></Avatar>
+                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
                     <h2>Sign In</h2>
                 </Grid>
-                <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-                    {(props) => (
-                        <Form>
-                            <Field as={TextField} label='Username' name="username"
-                                placeholder='Enter username' fullWidth required
-                                helperText={<ErrorMessage name="username" />}
-                            />
-                            <Field as={TextField} label='Password' name="password"
-                                placeholder='Enter password' type='password' fullWidth required
-                                helperText={<ErrorMessage name="password" />} />
-                            <Field as={FormControlLabel}
-                                name='remember'
-                                control={
-                                    <Checkbox
-                                        color="primary"
-                                    />
-                                }
-                                label="Remember me"
-                            />
-                            <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting}
-                                style={btnstyle} fullWidth onClick ={() =>{history.push("/users");}} >{props.isSubmitting ? "Loading..." : "Sign in"}</Button>
-
-                        </Form>
-                    )}
-                </Formik>
+                <TextField 
+                label='Username' 
+                placeholder='Enter username'
+                onChange={(event) => {setUsername(event.target.value)}} 
+                fullWidth required
+                />
+                <TextField 
+                label='Password' 
+                placeholder='Enter password' 
+                onChange={(event) => {setPassword(event.target.value)}}
+                type='password' 
+                fullWidth required
+                />
+               
+                <Button type='submit' color='primary' variant="contained" onClick={login} style={btnstyle} fullWidth>Sign in</Button>
                 <Typography >
-                    <Link href="#" >
+                     <Link href="#" >
                         Forgot password ?
                 </Link>
                 </Typography>
-                <Typography > Dont have an account ?
-                     <Link href="#"  onClick ={ () =>{history.push("/sign");}} >
-                        Sign Up
-                     </Link>
+                <Typography > Do you have an account ?
+                <Link href="#"  onClick ={ () =>{history.push("/sign");}}   >
+                         Sign Up
+                </Link>
                 </Typography>
             </Paper>
         </Grid>

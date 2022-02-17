@@ -70,7 +70,8 @@ const Staff = () => {
 
       options = {{
           exportButton : true,
-          searchFieldAlignment : "right"
+          searchFieldAlignment : "right",
+          actionsColumnIndex: -1
       }}
 
       

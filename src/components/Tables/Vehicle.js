@@ -66,7 +66,8 @@ const VehicleDetails = () => {
       }}
 
       options = {{
-        exportButton : true
+        exportButton : true,
+        actionsColumnIndex: -1
        }}
 
       

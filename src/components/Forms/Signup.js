@@ -55,8 +55,7 @@ const Signup = () => {
         })
          
         if(response){
-    
-            history.push("/login") // go to users dashboard         
+            history.push("/login") // go to users dashboard
 
         }
         

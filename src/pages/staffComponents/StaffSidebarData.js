@@ -17,11 +17,6 @@ export const StaffSidebarData = [
     icon: <IoIcons.IoMdAnalytics/>,
     cName: 'nav-text'
   },
-  {
-    title: 'LOGOUT',
-    path: '/staffdetails',
-    icon: <IoIcons.IoIosLogOut />,
-    cName: 'nav-text'
-  }
+  
 
 ];

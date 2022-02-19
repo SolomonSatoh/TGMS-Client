@@ -115,7 +115,10 @@ const TollDetails = () => {
     const getTolls=async()=>{
       await axios.get(baseUrl)
       .then(Response=>{
-        setData(Response.data);
+        setTimeout(()=>{
+          setData(Response.data);
+        },1000)
+        
       })
     };
 
@@ -135,7 +138,7 @@ const TollDetails = () => {
    
     //updating data function
     const tollPut = async() => {
-      await axios.put("http://localhost:3001/tolls/update/:id/" + tollDetails.id + "/", tollDetails)
+      await axios.put("http://localhost:3001/tolls/update/" + tollDetails.id + "/", tollDetails)
         .then(response => {
           var dataUpdate = data;
           dataUpdate.map(district => {
@@ -155,7 +158,7 @@ const TollDetails = () => {
       
     //toll delete
     const tollDelete = async () => {
-      await axios.delete( "http://localhost:3001/tolls/delete/:id/" + tollDetails.id )
+      await axios.delete( "http://localhost:3001/tolls/delete/" + tollDetails.id )
       .then(respose => {
         setData(data.filter(district => district.id!==tollDetails.id));
         tollModalDelete();
@@ -265,13 +268,11 @@ const TollDetails = () => {
 
     return (
       <div>
-     
-     <Typography variant='h4' gutterBottom>ADMIN TOLL DETAILS</Typography>
-            <IconButton align='right' 
-            onClick={()=>tollModalInsert()}
-            >
-           <PostAddIcon/>
-           </IconButton>
+      <IconButton align='right' 
+        onClick={()=>tollModalInsert()}
+        >
+        <PostAddIcon/>
+      </IconButton>
     
       <MaterialTable title="Toll Details"
       data={data}

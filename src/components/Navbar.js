@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
@@ -14,8 +15,30 @@ import * as IoIcons from 'react-icons/io';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useHistory } from 'react-router-dom';
 
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+    align: "center",
+  },
+  userItem: {
+
+  },
+  icon:{
+    fontSize: '3rem',
+    margin:'20px',
+  }
+}));
+
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+  const classes = useStyles();
 
   let history = useHistory();
 
@@ -28,6 +51,7 @@ function Navbar() {
         <AppBar  >
           <Toolbar className='navbar' variant="dense">
             <IconButton  
+              className={classes.icon}
               className='menu-bars' 
               edge="start" 
               color="inherit"
@@ -38,7 +62,7 @@ function Navbar() {
                <MenuIcon  onClick={showSidebar} />
             
             </IconButton>
-            <Typography variant="h5"  component="div" >
+            <Typography variant="h5"  component="div"  className={classes.title}>
               TOLLGATE MANAGEMENT SYSTEM
             </Typography>
           </Toolbar>

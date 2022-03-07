@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import {UserSidebarData} from './UserSidebarData'
 import { IconContext } from 'react-icons';
@@ -8,18 +9,65 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import * as IoIcons from 'react-icons/io';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useHistory, Redirect } from 'react-router-dom';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
 
 
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  userItem: {
+
+  },
+  icon:{
+    fontSize: '2rem'
+  }
+}));
 
 function SidebarUser() {
     const [sidebar, setSidebar] = useState(true);
 
     const showSidebar = () => setSidebar(!sidebar);
+
+    let history = useHistory();
+
+    const classes = useStyles();
+    const [auth, setAuth] = React.useState(true);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+  
+    const handleChange = (event) => {
+      setAuth(event.target.checked);
+    };
+  
+    const handleMenu = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+     
    
   
     return (
-        <div>
+      <div className={classes.root}>
+        
           <IconContext.Provider value={{ color: '#fff' }}>
           <Box sx={{ flexGrow: 1 }}>
           <AppBar  >
@@ -35,9 +83,40 @@ function SidebarUser() {
                  <MenuIcon  onClick={showSidebar} />
               
               </IconButton>
-              <Typography variant="h5"  component="div" >
+              <Typography variant="h5"  component="div" className={classes.title}>
                 TOLLGATE MANAGEMENT SYSTEM
               </Typography>
+              {auth && (
+                <div className={classes.userItem}>
+                  <IconButton
+                    aria-label="account of current user"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    onClick={handleMenu}
+                    color="inherit"
+                  >
+                    <AccountCircle  className={classes.icon}/>
+                  </IconButton>
+                  <Menu
+                    id="menu-appbar"
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    open={open}
+                    onClose={handleClose}
+                  >
+                    <MenuItem onClick={handleClose}>Solomon</MenuItem>
+                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  </Menu>
+                </div>
+              )}
             </Toolbar>
           </AppBar>
         </Box>
@@ -54,6 +133,7 @@ function SidebarUser() {
                     </li>
                   );
                 })}
+                
               </ul>
             </nav>
           </IconContext.Provider>

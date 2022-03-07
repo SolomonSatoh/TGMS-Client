@@ -4,16 +4,14 @@ import TollDetail from './TollDetail'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import BookingForm from '../../components/Forms/BookingForm'; 
 
-
 function Users() {
     return (
      <div className='users' >
-      <Router>
+      <Router basename='/user'>
           <SidebarUser />
           <Switch>
+            <Route exact path='/toll' component={TollDetail} />
             <Route path='/booking' component={BookingForm} />
-            <Route path='/user/toll' component={TollDetail} />
-           
            
           </Switch>
       </Router>

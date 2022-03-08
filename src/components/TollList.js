@@ -103,7 +103,12 @@ function TollList() {
                   <Typography  variant="subtitle2">{row.tollName}</Typography>
               </TableCell>
                <TableCell>{row.roadSection}</TableCell>
-              <Button onClick={() =>{history.push("/booking");}}>
+              <Button onClick={() =>{
+                localStorage.setItem("selected_row", JSON.stringify(row))
+                setTimeout(()=>{
+                  history.push("/booking");
+                }, 1000)
+                }}>
                   <Typography 
                     className={classes.status}
                     style={{

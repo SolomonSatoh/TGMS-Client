@@ -1,6 +1,6 @@
 
 
-import React from 'react'
+import React,{useState, useEffect}from 'react'
 import { Grid, Paper, Avatar, TextField, Button} from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -16,6 +16,7 @@ import AccType from './AccType';
 
 const BookingForm = ({ handleChange }) => {
 
+    const[selecteToll, setSelectedToll]= useState(JSON.parse(localStorage.getItem("selected_row")))
     const paperStyle = { padding: 80, height: '73vh', width: 500, margin: "0 auto",  }
     const avatarStyle = { backgroundColor: '#008000' }
     const btnstyle = { margin: '8px 0',backgroundColor: '#008000' }
@@ -26,6 +27,7 @@ const BookingForm = ({ handleChange }) => {
         plateNumber : '',
         
     }
+    
     const validationSchema = Yup.object().shape({
         // username: Yup.string().required("Required").min(8, 'Username should contain atleast 8 characters '),
         // password: Yup.string().required("Required").min(8,"Password should contain atleast 8 characters"),
@@ -44,6 +46,8 @@ const BookingForm = ({ handleChange }) => {
         }, 2000)
 
     }
+
+    console.log(selecteToll)
     return (
         <Grid className='forms'>
             <Box pt={3} sx={{boxShadow: 1}} borderColor="grey">
@@ -57,7 +61,9 @@ const BookingForm = ({ handleChange }) => {
                         <Form>
                             <Field as={TextField} label='District' name="district"
                                 placeholder='Enter District' type='district' fullWidth required
-                                helperText={<ErrorMessage name="district" />} />
+                                helperText={<ErrorMessage name="district" />} 
+
+                                />
                             
                             <Field as={TextField} label='Toll Name' name="tollName"
                                 placeholder='Toll Name' fullWidth required
@@ -71,7 +77,7 @@ const BookingForm = ({ handleChange }) => {
                             />
                             < Selection />
                             < Plan />
-                            <AccType />
+                        
                             <Field as={TextField} label='Plate Number' name="plateNumber"
                                 placeholder='Plate Number' fullWidth required
                                 helperText={<ErrorMessage name="plateNumber" />}

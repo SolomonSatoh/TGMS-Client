@@ -52,7 +52,6 @@ function Navbar() {
           <Toolbar className='navbar' variant="dense">
             <IconButton  
               className={classes.icon}
-              className='menu-bars' 
               edge="start" 
               color="inherit"
               size="large" 

@@ -63,15 +63,12 @@ const TollBookings = () => {
         onRowClick={((evt, selectedRow) => setSelectedRow(selectedRow.tableData.id))}
         options={{
           rowStyle: rowData => ({
+            exportButton : true,
             backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '#FFF'
         })
       }}
 
-      options = {{
-          exportButton : true
-      }}
-
-      
+    
       />
     )
   }

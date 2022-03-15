@@ -76,8 +76,7 @@ const BookingForm = ({ handleChange }) => {
                                 helperText={<ErrorMessage name="email" />}
                             />
                             < Selection />
-                            < Plan />
-
+                        
                             <Field as={TextField} label='Plate Number' name="plateNumber"
                                 placeholder='Plate Number' fullWidth required
                                 helperText={<ErrorMessage name="plateNumber" />}

@@ -12,7 +12,8 @@ const Customer = () => {
       { title: 'Section', field: 'section' },
       { title: 'Vehicle Type', field: 'vehicleType' },
       {title: 'Registration #', field: 'regNumber'},
-      {title: 'Price', field: 'price', type:"currency", currencySetting:{currencyCode:"MWK"}},
+      {title: 'Price', field: 'price', align: "left",
+      type:"currency", currencySetting:{currencyCode:"MWK"}},
       {title: 'Date/Time', field: 'createdAt', type: 'date',
          dateSetting: {
         format: 'dd/MM/yyyy'

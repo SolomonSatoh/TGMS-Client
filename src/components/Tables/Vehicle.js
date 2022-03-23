@@ -53,7 +53,8 @@ const VehicleDetails = () => {
   var columns = [
     {title: "id", field: "id", hidden: true},
     {title: "Vehicle Type", field: "vehicleType"},
-    {title: "Price", field: "price", type:"currency", currencySetting:{currencyCode:"MWK"}},
+    {title: "Price", field: "price", align: "left",
+    type:"currency", currencySetting:{currencyCode:"MWK"}},
   ]
   
 const api = axios.create({

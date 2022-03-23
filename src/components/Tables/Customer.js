@@ -1,47 +1,56 @@
-
-
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import MaterialTable from 'material-table'
+import axios from 'axios'
+
 
 const Customer = () => {
-    const { useState } = React;
-    const [selectedRow, setSelectedRow] = useState(null);
-  
+    
+    const [data, setData] = useState([]); //table data
     const [columns, setColumns] = useState([
       { title: 'District', field: 'district' },
-      { title: 'Toll Name', field: 'tollname' },
-      {title: 'Registration #', field: 'Reg'},
-      { title: 'Email', field: 'email' },
-      {title: 'Time', field: 'time'}
+      { title: 'Toll Name', field: 'tollName' },
+      { title: 'Section', field: 'section' },
+      { title: 'Vehicle Type', field: 'vehicleType' },
+      {title: 'Registration #', field: 'regNumber'},
+      {title: 'Price', field: 'price', type:"currency", currencySetting:{currencyCode:"MWK"}},
+      {title: 'Date/Time', field: 'createdAt', type: 'date',
+         dateSetting: {
+        format: 'dd/MM/yyyy'
+      }}
     
     
     ]);
+    
+      
+    const api = axios.create({
+      baseURL: `http://localhost:3001/bookings`
+    })
   
-    const [data, setData] = useState([
-      { district: 'Zomba', tollname: '3miles',  Reg: 'RT334', email: 'aaa@gmail.com', time:'10:00hrs', },
-      { district: 'Mzimba', tollname: 'Jandalala',  Reg: 'BB334', email: 'wwww@gmail.com', time:'21:00hrs',},
-      { district: 'Blantyre', tollname: 'Kameza',  Reg: 'KK334', email: 'qqq@gmail.com',time:'23:00hrs',},
+    //getting data from api
+    const getBookings=async()=>{
+    await api.get("/")
+      .then(Response=>{
+       setData(Response.data);
+       })
+    };
 
-    ]);
-  
+    useEffect(()=>{
+       getBookings();
+    }, []);  
+
     return (
       <MaterialTable
-        title="Customer Booking Details"
-        columns={columns}
-        data={data}
-        onRowClick={((evt, selectedRow) => setSelectedRow(selectedRow.tableData.id))}
-        options={{
-          rowStyle: rowData => ({
-            backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '#FFF'
-        })
-      }}
-
-      options = {{
-          exportButton : true,
-      }}
-
+      title=" USER TOLL ENTRIES"
+      columns={columns}
+      data={data}
       
-      />
+      options = {{
+        exportButton : true,
+        actionsColumnIndex: -1
+        
+       }}
+
+    />
     )
   }
 

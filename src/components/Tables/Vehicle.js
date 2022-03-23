@@ -46,21 +46,8 @@ const tableIcons = {
 
 
 const VehicleDetails = () => {
-    const { useState } = React;
-    // const [selectedRow, setSelectedRow] = useState(null);
-  
-    // const [columns, setColumns] = useState([
-    //   { title: 'Vehicle Type', field: 'vehicletype' },
-    //   { title: 'Price', field: 'price', initialEditValue: 'initial edit value' },
-    // ]);
-  
-    // const [data, setData] = useState([
-    //   { vehicletype: 'Bus', price: 'K30,000'},
-    //   { vehicletype: 'Truck', price: 'K25,000'},
-    //   { vehicletype: 'Abnormal', price: 'K20,000'},
-    //   { vehicletype: 'Luxury', price: 'K15,000'},
-      
-    // ]);
+  const { useState } = React;
+   
   const [data, setData] = useState([]); //table data
   
   var columns = [
@@ -72,19 +59,12 @@ const VehicleDetails = () => {
 const api = axios.create({
 baseURL: `http://localhost:3001/vehicles`
 })
+
 //for error handling
  const [iserror, setIserror] = useState(false)
  const [errorMessages, setErrorMessages] = useState([])
 
-  // useEffect(() => { 
-  //   api.get("/allvehicle")
-  //       .then(res => {               
-  //           setData(res.data.data)
-  //        })
-  //        .catch(error=>{
-  //            console.log("Error")
-  //        })
-  // }, [])
+ 
   //getting data from api
   const getVehicle=async()=>{
     await api.get("/allvehicle")

@@ -102,7 +102,8 @@ function TollList() {
     const haChange = (event) => {
       const selected = event.target.value
       const v = vTypes.filter(t=>t.vehicleType===selected)
-      setTollDetails({...tollDetails, price:"Price: MKW "+v[0].price })
+      console.log(v)
+      setTollDetails({...tollDetails, price:v[0].price,vehicleType: v[0].vehicleType})
 
     };
    
@@ -126,6 +127,7 @@ function TollList() {
         console.log(tollDetails)
         await axios.post("http://localhost:3001/bookings/addBooking",tollDetails)
         .then(response => {
+          console.log(response)
           setData(data.concat(response.data))
           tollModalInsert();
         })
@@ -184,7 +186,7 @@ function TollList() {
                 >
                 {
                   vTypes.map((v, index)=>{
-                    return <option key={index} value={tollDetails.vehicleType}>{v.vehicleType}</option>})
+                    return <option key={index} value={v.vehicleType}>{v.vehicleType}</option>})
                 }
                  
                 </NativeSelect>
@@ -224,7 +226,6 @@ function TollList() {
     columns={columns}
     options={{
         paging:true,
-        exportButton:true,
         actionsColumnIndex: -1
     }}
 

@@ -106,7 +106,7 @@ const DynamicChart = () => {
                     data={chartData}
                     options={{
                         responsive:true,
-                        title: { text: "GRAPH SHOWING PRICE AGAINST VEHICLE CATEGORIES", display: true },
+                        title: { text: "PRICE CONTRIBUTION PER VEHICLE CATEGORY", display: true },
                         scales:{
                             yAxes:{
                                 ticks:{

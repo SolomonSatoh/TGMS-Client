@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import {Bar} from 'react-chartjs-2'
+import { TableContainer, TableHead, TableCell, TableRow, Table,TextField,Button} from '@material-ui/core'
 
 const DynamicChart = () => {
     const [chartData, setChartData]  = useState({});
@@ -32,7 +33,7 @@ const DynamicChart = () => {
             setChartData({
                 labels: vehicles,
                 datasets: [{
-                                             label: 'price per car category',
+                                             label: 'price per car category MK',
                                              data: prices,
                                              backgroundColor: [
                                                  'rgba(255, 99, 132, 0.2)',
@@ -98,19 +99,25 @@ const DynamicChart = () => {
     useEffect(() => {
         Chart();
       }, []);
+
+
       return(
           <div className="App">
-              <h1>Bar Chart</h1>
-              <div>
+              
+              <div style={{ width : '80%', height : '100vh', display : 'inline-flex', position : 'fixed'}}>
                   <Bar
                     data={chartData}
                     options={{
                         responsive:true,
+                        scaleLabel: function(label){return  '$' + label.data},
                         title: { text: "GRAPH SHOWING PRICE AGAINST VEHICLE CATEGORIES", display: true },
                         scales:{
                             yAxes:{
                                 ticks:{
-                                    beginAtZero: true
+                                    beginAtZero: true,
+                                    
+                                   
+                                    
                                 }
                             }
                         }

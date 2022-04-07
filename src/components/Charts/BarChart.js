@@ -100,8 +100,8 @@ const DynamicChart = () => {
       }, []);
       return(
           <div className="App">
-              <h1>Bar Chart</h1>
-              <div>
+             
+              <div style={{ width : '80%', height : '100vh', display : 'inline-flex', position : 'fixed'}}>
                   <Bar
                     data={chartData}
                     options={{

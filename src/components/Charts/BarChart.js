@@ -6,9 +6,9 @@ import {Bar} from 'react-chartjs-2'
 const DynamicChart = () => {
     const [chartData, setChartData]  = useState({});
     
- const Chart = () => {
+ const Chart = async() => {
 
-    axios.get("http://localhost:3001/bookings")
+   await axios.get("http://localhost:3001/bookings")
     .then(res => {
    
        console.log('Incoming data', res.data)

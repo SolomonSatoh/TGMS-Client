@@ -92,7 +92,7 @@ function Navbar() {
               </Link>
             </li>
             <li className='nav-text'>
-              <Link to='/login' className='nav-text'>
+              <Link to='/users' className='nav-text'>
                 <FaIcons.FaUserAlt />
                 <span><p>USERS</p></span>
               </Link>

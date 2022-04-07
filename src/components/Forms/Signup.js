@@ -47,6 +47,7 @@ const Signup = () => {
             username: values.name,
             email: values.email,
             phone: values.phone,
+            role : values.role,
             password : values.password,
             confirmPassword : values.confirmPassword
         }).catch((err) => {
@@ -56,7 +57,6 @@ const Signup = () => {
          
         if(response){
             history.push("/login") // go to users dashboard
-
         }
         
         console.log(JSON.stringify(values))
@@ -101,6 +101,10 @@ const Signup = () => {
                             <Field as={TextField} label='Phone Number' name="phone"
                                 placeholder='Enter Phone Number' type='phone' fullWidth required
                                 helperText={<ErrorMessage name="phone" />} 
+                            />
+                             <Field as={TextField} label='Role' name="role"
+                                placeholder='Enter User Role' type='text' fullWidth required
+                                helperText={<ErrorMessage name="role" />} 
                             />
                             <Field as={TextField} label='Password' name="password"
                                 placeholder='Enter password' type='password' fullWidth required

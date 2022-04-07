@@ -54,7 +54,7 @@ const LoginStaff = () =>{
                 />
                
                 <Button type='submit' color='primary' variant="contained" onClick={login} style={btnstyle} fullWidth>Sign in</Button>
-                <Typography >
+                {/* <Typography >
                      <Link href="#" >
                         Forgot password ?
                 </Link>
@@ -63,7 +63,7 @@ const LoginStaff = () =>{
                 <Link href="#"  onClick ={ () =>{history.push("/sign");}}   >
                          Sign Up
                 </Link>
-                </Typography>
+                </Typography> */}
             </Paper>
         </Grid>
     )

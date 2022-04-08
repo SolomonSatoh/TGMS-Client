@@ -4,6 +4,7 @@ import React from 'react';
 import MaterialTable from 'material-table';
 import  {useState, useEffect} from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify'
 import Button from '@material-ui/core/Button';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import {Modal,TextField, IconButton, Typography} from '@material-ui/core'
@@ -12,9 +13,9 @@ import { FaShoppingCart } from 'react-icons/fa';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
 import Box from '@mui/material/Box';
 import NativeSelect from '@mui/material/NativeSelect';
+import { jsPDF } from "jspdf";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     width: 400,
     height: 400,
     backgroundColor: theme.palette.background.paper,
-    // border: '2px solid #000',
+    border: '2px solid #4caf50',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2,4,3),
     top:'50%',
@@ -34,10 +35,21 @@ const useStyles = makeStyles((theme) => ({
       cursor:'pointer'
     },
     inputMaterial:{
-      width:'100%'
+      width:'100%',
+      color: 'primary',
     }
+    
 
   }));
+
+  toast.configure()
+
+  const notify = () => {
+    toast.success('Booking Was Successful, Take Receipt ', 
+    {position: toast.POSITION.TOP_CENTER,
+      autoClose:2000
+    })
+  }
 
 function TollList() {
   const classes = useStyles();
@@ -103,9 +115,17 @@ function TollList() {
       const selected = event.target.value
       const v = vTypes.filter(t=>t.vehicleType===selected)
       console.log(v)
-      setTollDetails({...tollDetails, price:v[0].price,vehicleType: v[0].vehicleType})
+      setTollDetails({...tollDetails, price:
+        v[0].price,vehicleType: v[0].vehicleType})
 
     };
+
+    const exportToPdf = (data)=>{
+      const doc = new jsPDF('p', 'mm', [100, 100]);      
+      doc.text("TOLL ENTRY RECEIPT\n\nToll name : "+ data.name+ "\nPrice: MKW "+data.price+"\nDistric : "+data.district+"\nSection : "+data.section+ "\nVehicle Type : "+data.vehicleType + "\nReg Number : "+data.regNumber, 1,20);  
+      const date = new Date()
+      doc.save("Toll Details"+date.getMilliseconds()+".pdf");
+    }
    
   //getting data from api
       const getTolls=async()=>{
@@ -129,7 +149,17 @@ function TollList() {
         .then(response => {
           console.log(response)
           setData(data.concat(response.data))
+
+          const resData = {
+            name : response.data.tollName,
+            district : response.data.district, 
+            price : response.data.price,
+            vehicleType : response.data.vehicleType,
+            section: response.data.section,
+            regNumber: response.data.regNumber
+          }
           tollModalInsert();
+          exportToPdf(resData)
         })
       };
 
@@ -209,7 +239,7 @@ function TollList() {
           />
           <br/>  
           <diV align="center">
-            <Button color='primary' onClick={ () => tollPost()}>CONFIRM</Button>
+            <Button color='primary' onClick={ () => {tollPost(); notify()}}>CONFIRM</Button>
             <Button onClick={() => tollModalInsert()}>Cancel</Button>
           </diV>
          

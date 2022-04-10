@@ -2,7 +2,7 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as IoIcons from 'react-icons/io';
 
-//This component creates reusable routes for admin panel
+/* An array of objects for admin routes. */
 export const AdminSidebarData = [
   {
     title: 'TOLL DETAILS',

@@ -42,7 +42,7 @@ const Signup = () => {
 
 
     const onSubmit = async(values, props) => {
-        
+       /* Sending the data to the server. */ 
         const response = await Axions.post("http://localhost:3001/users/register",{
             username: values.name,
             email: values.email,
@@ -67,7 +67,7 @@ const Signup = () => {
 
     }
 
-    //set state of the user registration
+   /* Not doing anything. It is just a state variable. */
     const [name, setName]  = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')

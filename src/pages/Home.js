@@ -2,7 +2,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-//A custome styling for the component
+/* A custom styling for the component. */
 const useStyles = makeStyles((theme) => ({
   colorText: {
     color: '#5AFF3D',
@@ -29,7 +29,13 @@ const useStyles = makeStyles((theme) => ({
   },
   
 }));
-//This function directs the  landing page of the system
+
+/**
+ * It returns a div with a class of home, which contains a h1 with a class of title, which contains a
+ * span with a class of welcome, which contains the text "Welcome to", and a br tag, which contains a
+ * span with a class of colorText, which contains the text "Tollgate Management System."
+ * @returns A div with a h1 inside it.
+ */
 function Home() {
   const classes = useStyles();
   return (

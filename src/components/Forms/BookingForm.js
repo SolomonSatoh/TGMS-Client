@@ -4,17 +4,15 @@ import React,{useState, useEffect}from 'react'
 import {makeStyles} from '@material-ui/core/styles'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { Grid, Paper, Avatar, TextField, Button} from '@material-ui/core'
+import {TextField, Button} from '@material-ui/core'
 import Box from '@material-ui/core/Box'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup'
 import NativeSelect from '@mui/material/NativeSelect';
 import axios from 'axios';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import { useForm } from "react-hook-form";
 
+/* A function that returns an object. */
 const useStyles = makeStyles((theme) => ({
     modal: {
       position: 'absolute',
@@ -39,14 +37,26 @@ const useStyles = makeStyles((theme) => ({
       
   
     }));
-  toast.configure()
+/**
+ * The function is called when the user clicks the submit button. 
+ * 
+ * The function is called "notify" and it uses the "toast" library to display a message to the user. 
+ * 
+ * The message is "User Entry Was Successful!" and it is displayed in the top center of the screen. 
+ * 
+ * The message is displayed for 2 seconds.
+ */
 
-  const notify = () => {
+toast.configure()
+const notify = () => {
     toast.success('User Entry Was Successful!', 
     {position: toast.POSITION.TOP_CENTER,
       autoClose:2000
     })
   }
+/**
+ * It's a function that takes a prop called handleChange and returns a form.
+ */
 const BookingForm = ({ handleChange }) => {
     const { register, handleSubmit, watch, errors } = useForm();
     const classes = useStyles();
@@ -61,8 +71,8 @@ const BookingForm = ({ handleChange }) => {
       
   
       });
-       // handle input data function
-       const handleChangeForm = ev => {
+  /*Event handler input data function*/
+  const handleChangeForm = ev => {
         const {name,value} = ev.target;
         setTollDetails(prevState => ({
           ...prevState,
@@ -71,12 +81,22 @@ const BookingForm = ({ handleChange }) => {
         }))
       };
 
-    const [vTypes, setVtype] = useState([])
-    const [tolls, setTolls] = useState([])
+    /* Declaring a state variable. */
+  const [vTypes, setVtype] = useState([])
+  const [tolls, setTolls] = useState([])
     
-    const baseUrlToll="http://localhost:3001/tolls";
-    //getting data from api
-    const getTolls=async()=>{
+  /* Creating an axios instances. */
+  const api = axios.create({
+    baseURL: `http://localhost:3001/vehicles`
+    })
+  
+  const baseUrlToll="http://localhost:3001/tolls";
+
+  /**
+   * GetTolls() is an async function that uses axios to get data from the baseUrlToll, then sets the
+   * state of the tolls array to the data that was retrieved from the API.
+   */
+  const getTolls=async()=>{
         await axios.get(baseUrlToll)
         .then(Response=>{
           setTimeout(()=>{
@@ -90,26 +110,30 @@ const BookingForm = ({ handleChange }) => {
         getTolls();
       }, []);
       
-    const api = axios.create({
-      baseURL: `http://localhost:3001/vehicles`
-      })
     
-    useEffect(()=>{
-      api.get("/allvehicle")
-      .then(Response=>{
+useEffect(()=>{
+  api.get("/allvehicle")
+    .then(Response=>{
         setVtype(Response.data)
        })
-    },[])
+},[])
     
-    const handleChangeToll = (e) => {
-        const selected = e.target.value
-        const v = tolls.filter(t=>t.tollName===selected)
-        console.log(v)
-        setTollDetails({...tollDetails, district:
-          v[0].district, tollName: v[0].tollName, section: v[0].section })
+/**
+* When the user changes the value of the select element, filter the tolls array to find the one
+* that matches the selected value, then set the state of the tollDetails object to the values of
+* the filtered object.
+* @param e - the event object
+*/
+const handleChangeToll = (e) => {
+    const selected = e.target.value
+    const v = tolls.filter(t=>t.tollName===selected)
+    console.log(v)
+    setTollDetails({...tollDetails, district:
+      v[0].district, tollName: v[0].tollName, section: v[0].section })
   
     };
-    const haChange = (event) => {
+
+const haChange = (event) => {
         const selected = event.target.value
         const v = vTypes.filter(t=>t.vehicleType===selected)
         console.log(v)
@@ -118,40 +142,46 @@ const BookingForm = ({ handleChange }) => {
   
       };
 
-  
-    const onSubmit = (values, props) => {
-        console.log(values)
-        setTimeout(() => {
-            props.resetForm()
-            props.setSubmitting(false)
+ /**
+  * When the form is submitted, reset the form and set the submitting state to false after 2 seconds.
+  * @param values - An object containing all the values of the form.
+  * @param props - The props passed to your component.
+  */
+const onSubmit = (values, props) => {
+  console.log(values)
+    setTimeout(() => {
+          props.resetForm()
+          props.setSubmitting(false)
         }, 2000)
 
-    }
+}
 
-     
-      // posting data into database through api
-      const tollPost = async() => {
-        console.log(tollDetails)
-        await axios.post("http://localhost:3001/bookings/addBooking",tollDetails)
-        .then(response => {
+ /**
+  * It takes the data from the form and sends it to the backend.
+  */   
+const tollPost = async() => {
+    console.log(tollDetails)
+    await axios.post("http://localhost:3001/bookings/addBooking",tollDetails)
+      .then(response => {
           console.log(response)
           setData(data.concat(response.data))
         })
-      };
-    return (
-        <div className={classes.modal}>
-          <h3 
-          style={{fontWeight:'bold',
-                  textAlign:"center",
-                  }}>
-                  User Entry Form</h3>
-          <br/>
-          <form>
-           <Box sx={{ minWidth: 120 }}>
-           <FormControl fullWidth>
-             <InputLabel variant="standard" htmlFor="uncontrolled-native">
-               Toll Name
-             </InputLabel>
+};
+return (
+    <div className={classes.modal}>
+      <h3 
+        style={{fontWeight:'bold',
+            textAlign:"center",
+        }}>
+           User Entry Form
+      </h3>
+      <br/>
+      <form>
+        <Box sx={{ minWidth: 120 }}>
+          <FormControl fullWidth>
+            <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              Toll Name
+            </InputLabel>
              <NativeSelect
                defaultValue={30}
                onChange={handleChangeToll}
@@ -160,41 +190,40 @@ const BookingForm = ({ handleChange }) => {
                  id: 'uncontrolled-native',
              
                }}
-              
-             >
-             {
-               tolls.map((v, index)=>{
-                 return <option key={index} value={v.tollName}>{v.tollName}</option>})
-             }
-              
-             </NativeSelect>
-           </FormControl>
-         </Box>
-            <br/>
-            <TextField className={classes.inputMaterial} 
+            >
+            {
+              /* Mapping through the tolls array and returning an option element for each item in the
+              array. */
+              tolls.map((v, index)=>{
+                return <option key={index} value={v.tollName}>{v.tollName}</option>})
+            }
+            </NativeSelect>
+          </FormControl>
+        </Box>
+        <br/>
+          <TextField className={classes.inputMaterial} 
             label="District" 
             name='district'
             type="text"
             onChange={handleChangeForm}
             value={tollDetails.district}
-            />
-            <br/>
-            <TextField className={classes.inputMaterial} 
+          />
+          <br/>
+          <TextField className={classes.inputMaterial} 
             label="Road Section"
             name='section'
             type="text"
             onChange={handleChangeForm}
             value={tollDetails.section}
-            />
-            <br/>
-            <Box sx={{ minWidth: 120 }}>
+          />
+          <br/>
+          <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
             <InputLabel variant="standard" htmlFor="uncontrolled-native">
               Vehicle Type
             </InputLabel>
             <NativeSelect
               defaultValue={30}
-              //value={tollDetails.vehicleType}
               onChange={haChange}
               inputProps={{
                 name: 'vehicleType',
@@ -204,6 +233,8 @@ const BookingForm = ({ handleChange }) => {
               
             >
             {
+              /* Mapping through the vTypes array and returning an option element for each item in the
+              array. */
               vTypes.map((v, index)=>{
                 return <option key={index} value={v.vehicleType}>{v.vehicleType}</option>})
             }
@@ -233,8 +264,8 @@ const BookingForm = ({ handleChange }) => {
            </form>
                           
          
-          </div>
-    )
+      </div>
+    );
 }
 
 export default BookingForm

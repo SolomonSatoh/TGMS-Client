@@ -1,3 +1,4 @@
+/* Importing the necessary modules. */
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
@@ -14,7 +15,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
-//custome styling for staff panel sidebar
+/* A function that returns an object. */
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -35,20 +36,30 @@ const useStyles = makeStyles((theme) => ({
 
 
 function SidebarStaff() {
+    /* Setting the state of the component. */
     const [sidebar, setSidebar] = useState(true);
 
     const showSidebar = () => setSidebar(!sidebar);
     const classes = useStyles();
+    /* Setting the state of the component. */
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
+
     const open = Boolean(anchorEl);
   
-    //event handler for staff login & logout icon
+    /**
+     * When the user clicks on the menu button, the menu will open.
+     * @param event - The event that triggered the function.
+     */
     const handleMenu = (event) => {
       setAnchorEl(event.currentTarget);
     };
 
-    //event handler for logout icon
+    /**
+     * Const handleClose = () =&gt; {
+     *       setAnchorEl(null);
+     *     };
+     */
     const handleClose = () => {
       setAnchorEl(null);
     };
@@ -67,7 +78,7 @@ function SidebarStaff() {
                     aria-label="menu" 
                     sx={{ mr: 2 }}>
 
-                    <MenuIcon  onClick={showSidebar} />
+                  <MenuIcon  onClick={showSidebar} />
                   
                   </IconButton>
                   <Typography variant="h5"  component="div"  className={classes.title}>
@@ -110,7 +121,9 @@ function SidebarStaff() {
             
             <nav className={sidebar ? 'nav-menu-staff active' : 'nav-menu-staff'}>
               <ul className='nav-menu-items'>
-                {StaffSidebarData.map((item, index) => {
+                {/* Mapping through the data in the StaffSidebarData.js file and returning the data in
+                the form of a list. */
+                StaffSidebarData.map((item, index) => {
                   return (
                     <li key={index} className={item.cName}>
                       <Link to={item.path}>

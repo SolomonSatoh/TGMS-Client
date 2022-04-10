@@ -37,31 +37,35 @@ const useStyles = makeStyles((theme) => ({
 function SidebarUser() {
     const [sidebar, setSidebar] = useState(true);
 
+    /**
+     * When the showSidebar function is called, it will set the sidebar state to the opposite of what
+     * it currently is.
+     */
     const showSidebar = () => setSidebar(!sidebar);
-
-    let history = useHistory();
 
     const classes = useStyles();
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
   
-    //event handler for user login & logout icon
+    /**
+     * When the user clicks on the menu button, the menu will appear.
+     * @param event - The event that triggered the function.
+     */
     const handleMenu = (event) => {
       setAnchorEl(event.currentTarget);
     };
 
-    //event handler for logout icon
+    /**
+     * The handleClose function is a function that sets the anchorEl to null.
+     */
     const handleClose = () => {
       setAnchorEl(null);
     };
      
-   
-  
-    return (
+  return (
       <div className={classes.root}>
-        
-          <IconContext.Provider value={{ color: '#fff' }}>
+        <IconContext.Provider value={{ color: '#fff' }}>
           <Box sx={{ flexGrow: 1 }}>
           <AppBar  >
             <Toolbar className='navbar' variant="dense">
@@ -116,7 +120,9 @@ function SidebarUser() {
             <nav className={sidebar ? 'nav-menu-user active' : 'nav-menu-user'}>
               <ul className='nav-menu-items'  >
               
-                {UserSidebarData.map((item, index) => {
+                {/* Mapping through the data in the UserSidebarData.js file and returning the data in
+                the form of a list. */
+                UserSidebarData.map((item, index) => {
                   return (
                     <li key={index} className={item.cName}>
                       <Link to={item.path}>

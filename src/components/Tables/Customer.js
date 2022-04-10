@@ -1,10 +1,15 @@
+/* This is importing the required libraries for the component to work. */
 import React, { useState, useEffect } from 'react'
 import MaterialTable from 'material-table'
 import axios from 'axios'
 
-//This component all the functions for getting all booking infomation by users
+
 const Customer = () => {
-    const [data, setData] = useState([]); //the sate for table data
+
+    /* A state hook that is used to store data in the component. */
+    const [data, setData] = useState([]); 
+
+    /* This is a state hook that is used to store data in the component. */
     const [columns, setColumns] = useState([
       { title: 'District', field: 'district' },
       { title: 'Toll Name', field: 'tollName' },
@@ -19,12 +24,14 @@ const Customer = () => {
       }}
     ]);
     
-    //creates a base api end point  
+    /* Creating an axios instance. */
     const api = axios.create({
       baseURL: `http://localhost:3001/bookings`
     })
-  
-    //getting data from api
+    
+    /**
+     * When the component mounts, get the data from the API and set the state to the data.
+     */
     const getBookings=async()=>{
     await api.get("/")
       .then(Response=>{
@@ -38,15 +45,16 @@ const Customer = () => {
 
     return (
       <MaterialTable
-      title=" USER TOLL ENTRIES"
-      columns={columns}
-      data={data}
-      //implement pdf & csv data export from the table
-      options = {{
-        exportButton : true,
-        actionsColumnIndex: -1
+        title=" USER TOLL ENTRIES"
+        columns={columns}
+        data={data}
         
-       }}
+        /* Setting the options for the table. */
+        options = {{
+          exportButton : true,
+          actionsColumnIndex: -1
+          
+        }}
 
     />
     )

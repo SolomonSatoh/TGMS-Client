@@ -1,9 +1,16 @@
+/* Importing the MaterialTable component from the material-table package. */
 import React from 'react'
 import MaterialTable from 'material-table'
+
 const Staff = () => {
+    /* A destructuring assignment. It is a JavaScript expression that makes it possible to unpack
+    values from arrays, or properties from objects, into distinct variables. */
     const { useState } = React;
+
+    /* A state hook that is used to set the selected row to null. */
     const [selectedRow, setSelectedRow] = useState(null);
-  
+
+    /* Setting the columns of the table. */
     const [columns, setColumns] = useState([
       { title: 'Toll Name', field: 'tollName', initialEditValue: 'initial edit value' },
       { title: 'Name', field: 'name' },

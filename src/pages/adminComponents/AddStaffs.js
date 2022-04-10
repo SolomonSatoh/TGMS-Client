@@ -1,6 +1,10 @@
 import React from 'react';
 import AddStaff from "../.././components/Forms/AddStaff";
-//The base component for adding a staff by admin
+/**
+ * It's a function that returns a div with a className of 'forms' and a child component of AddStaff.
+ * @returns A function that returns a div with a className of 'forms' and a component called AddStaff.
+ */
+
 function AddStaffs() {
   
     return (

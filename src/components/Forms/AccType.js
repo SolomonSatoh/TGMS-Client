@@ -1,6 +1,4 @@
-
-
-
+/* Importing the material-ui components. */
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -11,6 +9,7 @@ import Select from '@mui/material/Select';
 const ITEM_HEIGHT = 40;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
+ /* Setting the height and width of the dropdown menu. */
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
@@ -18,6 +17,7 @@ const MenuProps = {
     },
   },
 };
+/* An array of strings. */
 
 const names = [
   'Organization',
@@ -25,6 +25,14 @@ const names = [
 
 ];
 
+/**
+ * If the personName is not in the name, then return the regular font weight, otherwise return the
+ * medium font weight.
+ * @param name - The name of the person.
+ * @param personName - The name of the person that is currently selected.
+ * @param theme - The theme object.
+ * @returns an object with a fontWeight property.
+ */
 function getStyles(name, personName, theme) {
   return {
     fontWeight:
@@ -38,12 +46,16 @@ export default function AccType() {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
+  /**
+   * It takes an event, and then it takes the value of the event, and then it sets the personName to
+   * the value of the event.
+   * @param event - The event object that is passed to the event handler.
+   */
   const handleChange = (event) => {
     const {
       target: { value },
     } = event;
     setPersonName(
-      // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
   };

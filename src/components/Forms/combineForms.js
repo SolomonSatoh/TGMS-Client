@@ -1,54 +1,22 @@
-
-
+/* Importing the components from the material-ui library. */
 import React from 'react'
 import { Grid, Paper, Avatar, Typography, TextField, Button } from '@material-ui/core'
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import Radio from '@material-ui/core/Radio';
-import * as Yup from 'yup'
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+/**
+ * It returns a Grid component that contains a Paper component that contains a form
+ * @returns A React component
+ */
 const Signup = () => {
     const paperStyle = { padding: 20, width: 300, margin: "0 auto" }
     const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     const marginTop = { marginTop: 5 }
-    
-    // const initialValues = {
-    //     username: '',
-    //     email : '',
-    //     gender : '',
-    //     phoneNumber: '',
-    //     password: '',
-    //     confirmPassword: ''
-        
-    // }
-    // const validationSchema = Yup.object().shape({
-        
-    //         // firstName : string().required("Please enter you first name"),
-    //         // lastName : string().required("Please enter your last name"),
-    //         username : string().required("Please enter username").min(8, "username too short"),
-    //         email : string().required("Please enter email").email("Invalid email"),
-    //         gender : string().required("Enter your gender"),
-    //         password : string().required("Enter password").min(8,"Password too short"),
-    //         confirmPassword : string().required("Confirm your password").min(8,"Password too short")
-
-
-    //     // username: Yup.string().email('please enter valid email').required("Required"),
-    //     // email: Yup.string().email('please enter valid email').required("Required"),
-    //     // gender: Yup.string().email('please enter valid email').required("Required"),
-    //     // password: Yup.string().required("Required").min(8,"Password should contain atleast 8 characters")
-    // })
-    // const onSubmit = (values, props) => {
-    //     console.log(values)
-    //     setTimeout(() => {
-    //         props.resetForm()
-    //         props.setSubmitting(false)
-    //     }, 2000)
-
-    // }
 
     return (
         <Grid>

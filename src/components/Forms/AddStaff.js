@@ -12,9 +12,12 @@ import { yellow } from '@material-ui/core/colors';
 
 const AddStaff = ({ handleChange }) => {
 
+    /* Defining the style of the paper, avatar and button. */
     const paperStyle = { padding: 30, height: '73vh', width: 600, margin: "0 auto",  }
     const avatarStyle = { backgroundColor: '#008000' }
     const btnstyle = { margin: '8px 0',backgroundColor: '#008000' }
+
+   /* Initializing the values of the form. */
     const initialValues = {
         username: '',
         password: '',
@@ -24,6 +27,7 @@ const AddStaff = ({ handleChange }) => {
         tollName : '',
         
     }
+    /* Validating the form. */
     const validationSchema = Yup.object().shape({
         username: Yup.string().required("Required").min(8, 'Username should contain atleast 8 characters '),
         password: Yup.string().required("Required").min(8,"Password should contain atleast 8 characters"),
@@ -32,6 +36,13 @@ const AddStaff = ({ handleChange }) => {
         address : Yup.string().required("Required"),
         tollName : Yup.string().required("Required")
     })
+
+    /**
+     * When the form is submitted, log the values to the console, then reset the form and set the
+     * submitting state to false after 2 seconds.
+     * @param values - The values of the form.
+     * @param props - The props passed to your component.
+     */
     const onSubmit = (values, props) => {
         console.log(values)
         setTimeout(() => {

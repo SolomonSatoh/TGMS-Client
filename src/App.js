@@ -11,7 +11,13 @@ import LoginAdmin from './components/Forms/LoginAdmin';
 import Signup from './components/Forms/Signup';
 import LoginStaff from './components/Forms/LoginStaff';
 
-//Base component for the sytems all routes
+/**
+ * The App function returns a div that contains a Router component that has a basename of 'tgms-client'
+ * and contains a Navbar component, a Switch component that contains a Route component for each page in
+ * the app, and a Route component that renders the ErrorPage component.
+ * @returns The return statement is used to return a value from a function.
+ */
+
 function App() {
   return (
     <div> 

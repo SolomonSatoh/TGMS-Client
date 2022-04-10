@@ -6,6 +6,9 @@ import {Bar} from 'react-chartjs-2'
 const DynamicChart = () => {
     const [chartData, setChartData]  = useState({});
     
+ /* A function that is called when the component mounts. It is an asynchronous function that makes a
+ call to the backend to get the data. The data is then manipulated to get the vehicle types and
+ prices. The data is then set to the state of the chartData object. */
  const Chart = async() => {
 
    await axios.get("http://localhost:3001/bookings")
@@ -22,13 +25,13 @@ const DynamicChart = () => {
             this[e.vehicleType].price += Number(e.price)
         }, {})
 
-        //get vehicles and prices into separate arrays
+        /* Getting the vehicles and prices into separate arrays. */
         let vehicles = finalArray.map(vehicleCategory => vehicleCategory.vehicleType);
         let prices = finalArray.map(vehiclePrice => vehiclePrice.price)
 
 
        
-        
+        /* Setting the state of the chartData object. */
             setChartData({
                 labels: vehicles,
                 datasets: [{

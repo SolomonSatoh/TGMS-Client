@@ -5,6 +5,22 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {useHistory } from 'react-router-dom';
 import Axions from 'axios'
 
+/**
+ * The login function is called when the user clicks the login button. 
+ * 
+ * The login function sends a POST request to the server with the username and password. 
+ * 
+ * If the username and password are correct, the server sends back a token. 
+ * 
+ * The token is saved in the session storage. 
+ * 
+ * The user is redirected to the admin page. 
+ * 
+ * If the username and password are incorrect, the server sends back an error message. 
+ * 
+ * The error message is displayed to the user.
+ * @returns The login page is being returned.
+ */
 
 const Login=()=>{
 

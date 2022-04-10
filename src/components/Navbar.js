@@ -1,3 +1,4 @@
+/* Importing all the necessary components from the libraries. */
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import * as AiIcons from 'react-icons/ai';
@@ -16,6 +17,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { useHistory } from 'react-router-dom';
 
 
+/* A function that returns an object for custom styling. */
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -37,11 +39,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Navbar() {
+  /* A state variable that is used to toggle the sidebar. */
   const [sidebar, setSidebar] = useState(false);
+
+/* A function that returns an object for custom styling. */
   const classes = useStyles();
 
+  /* A hook that allows you to access the history object's properties and the closest <Route>'s match
+  via the withRouter higher-order component. withRouter will pass updated match, location, and
+  history props to the wrapped component whenever it renders. */
   let history = useHistory();
 
+  /**
+   * When the showSidebar function is called, it will set the sidebar state to the opposite of what it
+   * currently is.
+   */
   const showSidebar = () => setSidebar(!sidebar);
 
   return (

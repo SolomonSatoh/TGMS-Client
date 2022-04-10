@@ -1,6 +1,7 @@
 import React from 'react';
 import * as IoIcons from 'react-icons/io';
 
+/* Exporting the data to be used in the sidebar. */
 export const UserSidebarData = [
   
   {
@@ -9,10 +10,5 @@ export const UserSidebarData = [
     icon: <IoIcons.IoMdListBox />,
     cName: 'nav-text'
   },
-  // {
-  //   title: 'LOGOUT',
-  //   icon: <IoIcons.IoIosLogOut />,
-  //   cName: 'nav-text'
-  // }
 
 ];

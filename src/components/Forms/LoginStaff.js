@@ -18,8 +18,11 @@ const LoginStaff = () =>{
     const [username, setUsername ] = useState("");
     const [password, setPassword ] = useState("");
 
-    const login =() => {
-        const data = {username:username, password:password}
+/* A function that is called when the user clicks the login button. It sends the username and password
+to the server and if the server returns an error, it displays the error. If the server returns a
+token, it saves the token in the session storage and redirects the user to the staff dashboard. */
+const login =() => {
+    const data = {username:username, password:password}
         Axions.post("http://localhost:3001/users/login",data).then((response) => {
             
             if(response.data.error) {

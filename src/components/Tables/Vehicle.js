@@ -5,8 +5,6 @@ import MaterialTable from 'material-table'
 import axios from 'axios'
 import Grid from '@material-ui/core/Grid'
 import { forwardRef } from 'react';
-
-
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';
@@ -22,8 +20,8 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
-//import Alert from '@material-ui/lab/Alert';
 
+/* A table icons. */
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
   Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -46,28 +44,33 @@ const tableIcons = {
 
 
 const VehicleDetails = () => {
-  const { useState } = React;
-   
-  const [data, setData] = useState([]); //table data
+ /* A hook that allows you to use state in a functional component. */
+  const { useState } = React; 
+  const [data, setData] = useState([]);
   
+  /* Defining the columns of the table. */
   var columns = [
     {title: "id", field: "id", hidden: true},
     {title: "Vehicle Type", field: "vehicleType"},
     {title: "Price", field: "price", align: "left",
     type:"currency", currencySetting:{currencyCode:"MWK"}},
   ]
-  
+ /* Creating an axios instance. */  
 const api = axios.create({
 baseURL: `http://localhost:3001/vehicles`
 })
 
-//for error handling
+/* A hook that allows you to use state in a functional component. */
  const [iserror, setIserror] = useState(false)
  const [errorMessages, setErrorMessages] = useState([])
 
- 
-  //getting data from api
-  const getVehicle=async()=>{
+ /**
+  * GetVehicle() is an async function that uses the useEffect hook to call the getVehicle() function,
+  * which uses the axios library to make a GET request to the API, and then sets the data returned from
+  * the API to the data state variable.
+  */
+  
+const getVehicle=async()=>{
     await api.get("/allvehicle")
       .then(Response=>{
        setData(Response.data);
@@ -78,8 +81,13 @@ baseURL: `http://localhost:3001/vehicles`
     getVehicle();
   }, []);  
   
+  /**
+   * If there are no errors, then add the new data to the database and then add the new data to the
+   * table. If there are errors, then display the errors.
+   * @param newData - the data that the user entered
+   * @param resolve - A function that should be called when the operation is completed.
+   */
   const handleRowAdd = (newData, resolve) => {
-    //validation
     let errorList = []
     if(newData.vehicleType === undefined){
       errorList.push("Please enter vehicle type")
@@ -88,7 +96,7 @@ baseURL: `http://localhost:3001/vehicles`
       errorList.push("Please enter vehicle price")
     }
 
-    if(errorList.length < 1){ //no error
+    if(errorList.length < 1){ 
       api.post("/addVehicle", newData)
       .then(res => {
         let dataToAdd = [...data];
@@ -111,6 +119,12 @@ baseURL: `http://localhost:3001/vehicles`
 
   }
   
+  /**
+   * It deletes a row from the table and the database.
+   * @param oldData - The data of the row that was deleted.
+   * @param resolve - A function that you must call when you're done with your async action, whether it
+   * succeeded or failed.
+   */
   const handleRowDelete = (oldData, resolve) => {
     
     api.delete("/delete/"+oldData.id)
@@ -128,8 +142,17 @@ baseURL: `http://localhost:3001/vehicles`
       })
   }
 
+/**
+ * It takes in newData, oldData, and resolve as parameters. It then checks if the newData.vehicleType
+ * and newData.price are empty. If they are, it pushes an error message to the errorList array. If they
+ * aren't, it makes a PUT request to the API. If the request is successful, it updates the data and
+ * resolves the promise. If the request fails, it sets the errorMessages and isError state variables.
+ * @param newData - The new data for the row.
+ * @param oldData - The data that was previously in the row.
+ * @param resolve - A function that you must call when your update is finished.
+ */
+
   const handleRowUpdate = (newData, oldData, resolve) => {
-    //validation
     let errorList = []
     if(newData.vehicleType === ""){
       errorList.push("Please enter vehicle type")
@@ -173,6 +196,8 @@ baseURL: `http://localhost:3001/vehicles`
       icons={tableIcons}
       editable={{
         
+        /* A function that is called when the user clicks the add button. It takes in newData as a
+        parameter. It then creates a new promise and calls the handleRowAdd function. */
         onRowAdd: (newData) =>
           new Promise((resolve) => {
             setTimeout(() =>{
@@ -181,6 +206,10 @@ baseURL: `http://localhost:3001/vehicles`
             },1000)
            
           }),
+
+         /* A function that is called when the user clicks the update button. It takes in newData and
+         oldData as parameters. It then creates a new promise and calls the handleRowUpdate
+         function. */
           onRowUpdate: (newData, oldData) =>
           new Promise((resolve) => {
             setTimeout(()=>{
@@ -188,6 +217,9 @@ baseURL: `http://localhost:3001/vehicles`
             },1000)  
               
           }),
+
+          /* A function that is called when the user clicks the delete button. It takes in oldData as a
+          parameter. It then creates a new promise and calls the handleRowDelete function. */
           onRowDelete: (oldData) =>
              new Promise((resolve) => {
                setTimeout(()=>{
@@ -196,6 +228,8 @@ baseURL: `http://localhost:3001/vehicles`
              
           }),
       }}
+      
+     /* Setting the export button to true and the actions column index to -1. */
       options = {{
         exportButton : true,
         actionsColumnIndex: -1

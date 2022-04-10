@@ -1,3 +1,4 @@
+/* Importing the modules. */
 import React from 'react';
 import SidebarAdmin from './SidebarAdmin';
 import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
@@ -8,8 +9,11 @@ import CustomerDetails from './CustomerDetails';
 import Transactions from './Transactions';
 import EntryDetails from './EntryDetails';
 import ErrorPage from '../ErrorPage';
-
-//The base component for all admin dashboard routes
+/**
+ * It returns a div with a SidebarAdmin component and a Switch component with a bunch of Route
+ * components.
+ * @returns A React component.
+ */
 function Admin() {
   return (
     <div className='admin' >

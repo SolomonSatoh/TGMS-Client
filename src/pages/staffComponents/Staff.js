@@ -1,10 +1,14 @@
+/* Importing the components that are needed for the Staff component. */
 import React from 'react';
 import AllEntry from './AllEntry';
 import SidebarStaff from './SidebarStaff';
 import UserEntry from './UserEntry';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-//Base component for all staff routes
+/**
+ * It renders a sidebar and a switch that renders either the UserEntry or AllEntry component.
+ * @returns A div with a router and a switch.
+ */
 function Staff() {
   return (
     <div className='staff'>

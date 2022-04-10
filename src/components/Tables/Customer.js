@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 import MaterialTable from 'material-table'
 import axios from 'axios'
 
-
+//This component all the functions for getting all booking infomation by users
 const Customer = () => {
-    
-    const [data, setData] = useState([]); //table data
+    const [data, setData] = useState([]); //the sate for table data
     const [columns, setColumns] = useState([
       { title: 'District', field: 'district' },
       { title: 'Toll Name', field: 'tollName' },
@@ -18,11 +17,9 @@ const Customer = () => {
          dateSetting: {
         format: 'dd/MM/yyyy'
       }}
-    
-    
     ]);
     
-      
+    //creates a base api end point  
     const api = axios.create({
       baseURL: `http://localhost:3001/bookings`
     })
@@ -44,7 +41,7 @@ const Customer = () => {
       title=" USER TOLL ENTRIES"
       columns={columns}
       data={data}
-      
+      //implement pdf & csv data export from the table
       options = {{
         exportButton : true,
         actionsColumnIndex: -1

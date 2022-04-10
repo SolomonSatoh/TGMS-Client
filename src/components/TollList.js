@@ -148,7 +148,7 @@ function TollList() {
         await axios.post("http://localhost:3001/bookings/addBooking",tollDetails)
         .then(response => {
           console.log(response)
-          setData(data.concat(response.data))
+          //setData(data.concat(response.data))
 
           const resData = {
             name : response.data.tollName,

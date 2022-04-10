@@ -3,8 +3,8 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
+//This component creates reusable routes for staff panel
 export const StaffSidebarData = [
-  
   {
     title: 'USER ENTRY',
     path: '/staff/user',

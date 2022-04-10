@@ -11,7 +11,7 @@ import LoginAdmin from './components/Forms/LoginAdmin';
 import Signup from './components/Forms/Signup';
 import LoginStaff from './components/Forms/LoginStaff';
 
-
+//Base component for the sytems all routes
 function App() {
   return (
     <div> 

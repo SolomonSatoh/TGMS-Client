@@ -1,9 +1,5 @@
-
-
-
 import React from 'react'
 import MaterialTable from 'material-table'
-
 const Staff = () => {
     const { useState } = React;
     const [selectedRow, setSelectedRow] = useState(null);
@@ -64,16 +60,12 @@ const Staff = () => {
         onRowClick={((evt, selectedRow) => setSelectedRow(selectedRow.tableData.id))}
         options={{
           rowStyle: rowData => ({
-            backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '#FFF'
+            backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '#FFF',
+            exportButton : true,
+            searchFieldAlignment : "right",
+            actionsColumnIndex: -1
         })
       }}
-
-      options = {{
-          exportButton : true,
-          searchFieldAlignment : "right",
-          actionsColumnIndex: -1
-      }}
-
       
       />
     )

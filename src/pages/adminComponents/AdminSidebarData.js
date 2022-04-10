@@ -2,6 +2,7 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as IoIcons from 'react-icons/io';
 
+//This component creates reusable routes for admin panel
 export const AdminSidebarData = [
   {
     title: 'TOLL DETAILS',
@@ -39,10 +40,6 @@ export const AdminSidebarData = [
     icon: <FaIcons.FaCar />,
     cName: 'nav-text'
   },
-  // {
-  //   title: 'LOGOUT',
-  //   icon: <IoIcons.IoIosLogOut />,
-  //   cName: 'nav-text'
-  // }
+
 
 ];

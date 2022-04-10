@@ -7,12 +7,10 @@ import StaffDetails from './StaffDetails';
 import CustomerDetails from './CustomerDetails';
 import Transactions from './Transactions';
 import EntryDetails from './EntryDetails';
-//import Profile from './Profile';
 import ErrorPage from '../ErrorPage';
 
-
+//The base component for all admin dashboard routes
 function Admin() {
- 
   return (
     <div className='admin' >
       <Router>

@@ -164,7 +164,7 @@ const TollDetails = () => {
 
       </div>
     )
-    // adding data form
+    //adding data form
     const bodyDataInsert =(
       <div className={classes.modal}>
         <h3 

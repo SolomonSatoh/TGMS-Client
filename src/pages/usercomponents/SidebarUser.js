@@ -9,18 +9,13 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import * as IoIcons from 'react-icons/io';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useHistory, Redirect } from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
 
-
-
+//Custome styling for this component
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -51,14 +46,12 @@ function SidebarUser() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
   
-    const handleChange = (event) => {
-      setAuth(event.target.checked);
-    };
-  
+    //event handler for user login & logout icon
     const handleMenu = (event) => {
       setAnchorEl(event.currentTarget);
     };
-  
+
+    //event handler for logout icon
     const handleClose = () => {
       setAnchorEl(null);
     };
@@ -122,7 +115,7 @@ function SidebarUser() {
         </Box>
             <nav className={sidebar ? 'nav-menu-user active' : 'nav-menu-user'}>
               <ul className='nav-menu-items'  >
-                
+              
                 {UserSidebarData.map((item, index) => {
                   return (
                     <li key={index} className={item.cName}>

@@ -14,6 +14,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
+//custome styling for staff panel sidebar
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -42,14 +43,12 @@ function SidebarStaff() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
   
-    const handleChange = (event) => {
-      setAuth(event.target.checked);
-    };
-  
+    //event handler for staff login & logout icon
     const handleMenu = (event) => {
       setAnchorEl(event.currentTarget);
     };
-  
+
+    //event handler for logout icon
     const handleClose = () => {
       setAnchorEl(null);
     };
@@ -111,7 +110,6 @@ function SidebarStaff() {
             
             <nav className={sidebar ? 'nav-menu-staff active' : 'nav-menu-staff'}>
               <ul className='nav-menu-items'>
-                
                 {StaffSidebarData.map((item, index) => {
                   return (
                     <li key={index} className={item.cName}>

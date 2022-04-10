@@ -1,12 +1,9 @@
 import React from 'react';
 import TollList from "../../components/TollList";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-
+//Base component that shows toll details for for booking
 function TollDetail() {
-  
-    
-    return (
+  return (
         <div className='table'>
            <TollList />
           

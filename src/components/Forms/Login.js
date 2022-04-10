@@ -26,7 +26,7 @@ const Login=()=>{
                 alert(response.data.error);
             } else {
                 sessionStorage.setItem("accessToken", response.data)
-                history.push("/users") // go to users dashboard
+                history.push("/admin") // go to users dashboard
             }
           
         })

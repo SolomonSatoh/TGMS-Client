@@ -2,8 +2,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
+//A custome styling for the component
 const useStyles = makeStyles((theme) => ({
-  
   colorText: {
     color: '#5AFF3D',
   },
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   
 }));
-
+//This function directs the  landing page of the system
 function Home() {
   const classes = useStyles();
   return (

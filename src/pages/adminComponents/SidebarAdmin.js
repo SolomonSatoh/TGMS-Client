@@ -15,7 +15,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
-
+//Custom styling for admin panel sidebar
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -43,21 +43,18 @@ function SidebarAdmin() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
-
+  //event handler for admin login & logout icon
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
+  //event handler logout icon
   const handleClose = () => {
     setAnchorEl(null);
   };
    
   return (
     <div className={classes.root}>
-    
       <IconContext.Provider value={{ color: '#fff' }}>
         <Box sx={{ flexGrow: 1 }}>
               <AppBar  >
@@ -112,7 +109,7 @@ function SidebarAdmin() {
           </Box>
           <nav className={sidebar ? 'nav-menu-admin active' : 'nav-menu-admin'}>
           <ul className='nav-menu-items' >
-            
+
             {AdminSidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>

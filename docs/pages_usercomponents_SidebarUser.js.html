@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/usercomponents/SidebarUser.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/usercomponents/SidebarUser.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+import {UserSidebarData} from './UserSidebarData'
+import { IconContext } from 'react-icons';
+import './UserNavbar.css';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import { useHistory, Redirect } from 'react-router-dom';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+
+//Custome styling for this component
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  userItem: {
+
+  },
+  icon:{
+    fontSize: '2rem'
+  }
+}));
+
+function SidebarUser() {
+    const [sidebar, setSidebar] = useState(true);
+
+    /**
+     * When the showSidebar function is called, it will set the sidebar state to the opposite of what
+     * it currently is.
+     */
+    const showSidebar = () => setSidebar(!sidebar);
+
+    const classes = useStyles();
+    const [auth, setAuth] = React.useState(true);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+  
+    /**
+     * When the user clicks on the menu button, the menu will appear.
+     * @param event - The event that triggered the function.
+     */
+    const handleMenu = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+
+    /**
+     * The handleClose function is a function that sets the anchorEl to null.
+     */
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+     
+  return (
+      &lt;div className={classes.root}>
+        &lt;IconContext.Provider value={{ color: '#fff' }}>
+          &lt;Box sx={{ flexGrow: 1 }}>
+          &lt;AppBar  >
+            &lt;Toolbar className='navbar' variant="dense">
+              &lt;IconButton  
+                className='menu-bars' 
+                edge="start" 
+                color="inherit"
+                size="large" 
+                aria-label="menu" 
+                sx={{ mr: 2 }}>
+  
+                 &lt;MenuIcon  onClick={showSidebar} />
+              
+              &lt;/IconButton>
+              &lt;Typography variant="h5"  component="div" className={classes.title}>
+                TOLLGATE MANAGEMENT SYSTEM
+              &lt;/Typography>
+              {auth &amp;&amp; (
+                &lt;div className={classes.userItem}>
+                  &lt;IconButton
+                    aria-label="account of current user"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    onClick={handleMenu}
+                    color="inherit"
+                  >
+                    &lt;AccountCircle  className={classes.icon}/>
+                  &lt;/IconButton>
+                  &lt;Menu
+                    id="menu-appbar"
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    open={open}
+                    onClose={handleClose}
+                  >
+                    &lt;MenuItem onClick={handleClose}>Solomon&lt;/MenuItem>
+                    &lt;MenuItem onClick={handleClose}>Logout&lt;/MenuItem>
+                  &lt;/Menu>
+                &lt;/div>
+              )}
+            &lt;/Toolbar>
+          &lt;/AppBar>
+        &lt;/Box>
+            &lt;nav className={sidebar ? 'nav-menu-user active' : 'nav-menu-user'}>
+              &lt;ul className='nav-menu-items'  >
+              
+                {/* Mapping through the data in the UserSidebarData.js file and returning the data in
+                the form of a list. */
+                UserSidebarData.map((item, index) => {
+                  return (
+                    &lt;li key={index} className={item.cName}>
+                      &lt;Link to={item.path}>
+                        {item.icon}
+                        &lt;span>{item.title}&lt;/span>
+                      &lt;/Link>
+                    &lt;/li>
+                  );
+                })}
+                
+              &lt;/ul>
+            &lt;/nav>
+          &lt;/IconContext.Provider>
+        &lt;/div>
+      );
+}
+
+export default SidebarUser;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddStaffs">AddStaffs</a></li><li><a href="global.html#Admin">Admin</a></li><li><a href="global.html#AllEntry">AllEntry</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BookingForm">BookingForm</a></li><li><a href="global.html#CustomerDetails">CustomerDetails</a></li><li><a href="global.html#EntryDetails">EntryDetails</a></li><li><a href="global.html#ErrorPage">ErrorPage</a></li><li><a href="global.html#getStyles">getStyles</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#Signup">Signup</a></li><li><a href="global.html#Staff">Staff</a></li><li><a href="global.html#StaffDetails">StaffDetails</a></li><li><a href="global.html#TollDetail">TollDetail</a></li><li><a href="global.html#Transactions">Transactions</a></li><li><a href="global.html#UserEntry">UserEntry</a></li><li><a href="global.html#Users">Users</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Apr 10 2022 05:14:12 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Forms/AddStaff.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Forms/AddStaff.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+
+import React from 'react'
+import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from '@material-ui/core'
+import Box from '@material-ui/core/Box'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
+import { yellow } from '@material-ui/core/colors';
+
+const AddStaff = ({ handleChange }) => {
+
+    /* Defining the style of the paper, avatar and button. */
+    const paperStyle = { padding: 30, height: '73vh', width: 600, margin: "0 auto",  }
+    const avatarStyle = { backgroundColor: '#008000' }
+    const btnstyle = { margin: '8px 0',backgroundColor: '#008000' }
+
+   /* Initializing the values of the form. */
+    const initialValues = {
+        username: '',
+        password: '',
+        email : '',
+        phone : '',
+        address: '',
+        tollName : '',
+        
+    }
+    /* Validating the form. */
+    const validationSchema = Yup.object().shape({
+        username: Yup.string().required("Required").min(8, 'Username should contain atleast 8 characters '),
+        password: Yup.string().required("Required").min(8,"Password should contain atleast 8 characters"),
+        email: Yup.string().email('Enter valid email').required("Required"),
+        phone : Yup.string().required("Required").min(10,"Phone # should contain 10 digits").max(10,"Phone # should contain 10 digits"),
+        address : Yup.string().required("Required"),
+        tollName : Yup.string().required("Required")
+    })
+
+    /**
+     * When the form is submitted, log the values to the console, then reset the form and set the
+     * submitting state to false after 2 seconds.
+     * @param values - The values of the form.
+     * @param props - The props passed to your component.
+     */
+    const onSubmit = (values, props) => {
+        console.log(values)
+        setTimeout(() => {
+            props.resetForm()
+            props.setSubmitting(false)
+        }, 2000)
+
+    }
+    return (
+        &lt;Grid>
+            &lt;Box pt={3} sx={{boxShadow: 1}} borderColor="grey">
+            &lt;Paper style={paperStyle}>
+                &lt;Grid align='center'>
+                    &lt;Avatar style={avatarStyle}>&lt;LockOutlinedIcon />&lt;/Avatar>
+                    &lt;h2>ADD STAFF&lt;/h2>
+                &lt;/Grid>
+                &lt;Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+                    {(props) => (
+                        &lt;Form>
+                            &lt;Field as={TextField} label='Username' name="username"
+                                placeholder='Enter username' fullWidth required
+                                helperText={&lt;ErrorMessage name="username" />}
+                            />
+
+                            &lt;Field as={TextField} label='Email' name="email"
+                                placeholder='Enter Email' fullWidth required
+                                helperText={&lt;ErrorMessage name="email" />}
+                            />
+                             
+                             &lt;Field as={TextField} label='Address' name="address"
+                                placeholder='Address' fullWidth required
+                                helperText={&lt;ErrorMessage name="address" />}
+
+                            />
+
+                           &lt;Field as={TextField} label='Phone' name="phone"
+                                placeholder='Enter Phone Number' fullWidth required
+                                helperText={&lt;ErrorMessage name="phone" />
+                            }
+                            />
+                            &lt;Field as={TextField} label='Toll Name' name="tollName"
+                                placeholder='Toll Name' fullWidth required
+                                helperText={&lt;ErrorMessage name="tollName" />}
+
+                            />
+
+                            &lt;Field as={TextField} label='Password' name="password"
+                                placeholder='Enter password' type='password' fullWidth required
+                                helperText={&lt;ErrorMessage name="password" />} />
+                            
+                            &lt;Button type='submit'  variant="contained" disabled={props.isSubmitting}
+                                style={btnstyle} fullWidth>{props.isSubmitting ? "Loading" : "Add Staff"}&lt;/Button>
+
+                        &lt;/Form>
+                    )}
+                &lt;/Formik>
+            &lt;/Paper>
+            &lt;/Box>
+        &lt;/Grid>
+    )
+}
+
+export default AddStaff</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddStaffs">AddStaffs</a></li><li><a href="global.html#Admin">Admin</a></li><li><a href="global.html#AllEntry">AllEntry</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BookingForm">BookingForm</a></li><li><a href="global.html#CustomerDetails">CustomerDetails</a></li><li><a href="global.html#EntryDetails">EntryDetails</a></li><li><a href="global.html#ErrorPage">ErrorPage</a></li><li><a href="global.html#getStyles">getStyles</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#Signup">Signup</a></li><li><a href="global.html#Staff">Staff</a></li><li><a href="global.html#StaffDetails">StaffDetails</a></li><li><a href="global.html#TollDetail">TollDetail</a></li><li><a href="global.html#Transactions">Transactions</a></li><li><a href="global.html#UserEntry">UserEntry</a></li><li><a href="global.html#Users">Users</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Apr 10 2022 05:14:12 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

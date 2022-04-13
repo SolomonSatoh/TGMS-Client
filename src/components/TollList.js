@@ -15,6 +15,7 @@ import FormControl from '@mui/material/FormControl';
 import Box from '@mui/material/Box';
 import NativeSelect from '@mui/material/NativeSelect';
 import { jsPDF } from "jspdf";
+import Paypal from './Tables/Paypal'
 
 /* A function that returns an object with the styles. */
 const useStyles = makeStyles((theme) => ({
@@ -112,6 +113,7 @@ function TollList() {
           (caso ==="Insert")? tollModalInsert()
           :
           tollModalInsert()
+        
       };
       
       const handleChange = e => {
@@ -122,6 +124,7 @@ function TollList() {
     
         }))
       };
+      
 
     /**
      * When the user selects a vehicle type, the price and vehicle type are set to the corresponding
@@ -203,8 +206,10 @@ function TollList() {
           }
           tollModalInsert();
           exportToPdf(resData)
+          
         })
       };
+      console.log('Toll Details',tollDetails)
 
      
      /* A modal form for inserting data into the database. */
@@ -293,6 +298,7 @@ function TollList() {
   return (
     
     <div>
+     <Paypal tollDetails={tollDetails}/>
       <MaterialTable title="Toll Details"
         data={data}
         columns={columns}

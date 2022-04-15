@@ -2,7 +2,7 @@ import React from 'react'
 import SidebarUser from './SidebarUser'
 import TollDetail from './TollDetail'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import BookingForm from '../../components/Forms/BookingForm';
+
 
 /**
  * It returns a div with a Router component that has a basename of /user. Inside the Router component
@@ -18,7 +18,6 @@ function Users() {
           <SidebarUser />
           <Switch>
             <Route exact path='/toll' component={TollDetail} />
-            <Route path='/booking' component={BookingForm} />
            
           </Switch>
       </Router>

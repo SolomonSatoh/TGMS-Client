@@ -4,11 +4,12 @@ import { PayPalButton } from "react-paypal-button-v2";
 export default function App(props) {
     console.log('Incoming data',props)
   const [state, setState] = useState(0);
+
   return (
-    <div>
+    <div className="">
       <input
         type="number"
-        value={state}
+        value={props.tollDetails.price}
         onChange={(e) => setState(e.target.value)}
       />
       <PayPalButton
@@ -22,6 +23,7 @@ export default function App(props) {
 
           console.log({ details, data });
         }}
+      
       />
     </div>
   );

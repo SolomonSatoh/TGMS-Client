@@ -1,21 +1,21 @@
-
-
 import React from 'react';
 import MaterialTable from 'material-table';
 import  {useState, useEffect} from 'react';
 import axios from 'axios';
-import { toast } from 'react-toastify'
+import { toast } from 'react-toastify';
 import Button from '@material-ui/core/Button';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import {Modal,TextField} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
-import { FaShoppingCart } from 'react-icons/fa';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Box from '@mui/material/Box';
 import NativeSelect from '@mui/material/NativeSelect';
 import { jsPDF } from "jspdf";
-import Paypal from './Tables/Paypal'
+import Paypal from './Tables/Paypal';
+import { PayPalButton } from "react-paypal-button-v2";
+
+
 
 /* A function that returns an object with the styles. */
 const useStyles = makeStyles((theme) => ({
@@ -56,6 +56,9 @@ const useStyles = makeStyles((theme) => ({
 function TollList() {
     /* A function that returns an object with the styles. */
     const classes = useStyles();
+    const [state, setState] = useState(0);
+    const [isToggled, setToggled] = useState(false)
+
     
     /* A state hook that is used to store data in the state. */
     const [vTypes, setVtype] = useState([])
@@ -152,7 +155,7 @@ function TollList() {
         v[0].price,vehicleType: v[0].vehicleType})
 
     };
-
+    
     /**
      * It takes in an object with the following properties: name, price, district, section,
      * vehicleType, regNumber. It then creates a pdf file with the data passed in the object
@@ -211,7 +214,7 @@ function TollList() {
       };
       console.log('Toll Details',tollDetails)
 
-     
+    
      /* A modal form for inserting data into the database. */
       const bodyDataInsert =(
         <div className={classes.modal}>
@@ -287,18 +290,22 @@ function TollList() {
           />
           <br/>  
           <diV align="center">
-            <Button color='primary' onClick={ () => {tollPost(); notify()}}>CONFIRM</Button>
+            <Button color='primary' onClick={ () => {tollPost(); notify(); setToggled(!isToggled)}}>CONFIRM</Button>
             <Button onClick={() => tollModalInsert()}>Cancel</Button>
           </diV>
          
           </div>
        )
+
+       
+    
   
     
   return (
     
     <div>
-     <Paypal tollDetails={tollDetails}/>
+      {isToggled && <Paypal tollDetails={tollDetails}/>}
+
       <MaterialTable title="Toll Details"
         data={data}
         columns={columns}

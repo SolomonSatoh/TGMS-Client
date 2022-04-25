@@ -29,6 +29,10 @@ const DynamicChart = () => {
         let vehicles = finalArray.map(vehicleCategory => vehicleCategory.vehicleType);
         let prices = finalArray.map(vehiclePrice => vehiclePrice.price)
 
+        const totalPrice = prices.reduce(function(a,b){
+            return a + b;
+        }, 0);
+
 
        
         /* Setting the state of the chartData object. */
@@ -103,7 +107,7 @@ const DynamicChart = () => {
       }, []);
       return(
           <div className="App">
-             
+             <h1> Total Amount :  totalPrice  </h1>
               <div style={{ width : '80%', height : '100vh', display : 'inline-flex', position : 'fixed'}}>
                   <Bar
                     data={chartData}

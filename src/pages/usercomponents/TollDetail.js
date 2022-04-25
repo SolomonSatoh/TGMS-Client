@@ -1,7 +1,5 @@
 import React from 'react';
 import TollList from "../../components/TollList";
-import Paypal from '../../components/Tables/Paypal'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 /**

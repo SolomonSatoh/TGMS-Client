@@ -6,7 +6,8 @@ export default function App(props) {
   const [state, setState] = useState(0);
 
   return (
-    <div className="">
+    <div className="paypal">
+      <h1> Confirm Payment</h1>
       <input
         type="number"
         value={props.tollDetails.price}

@@ -208,7 +208,7 @@ function TollList() {
             regNumber: response.data.regNumber
           }
           tollModalInsert();
-          exportToPdf(resData)
+          // exportToPdf(resData)
           
         })
       };
@@ -304,7 +304,7 @@ function TollList() {
   return (
     
     <div>
-      {isToggled && <Paypal tollDetails={tollDetails}/>}
+      {isToggled && <Paypal tollDetails={tollDetails} data={data}/>}
 
       <MaterialTable title="Toll Details"
         data={data}

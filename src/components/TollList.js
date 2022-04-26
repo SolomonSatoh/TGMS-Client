@@ -71,6 +71,7 @@ function TollList() {
       vehicleType: " ",
       regNumber: " ",
       price: " ",
+      createdAt: ""
     
 
     });
@@ -290,7 +291,7 @@ function TollList() {
           />
           <br/>  
           <diV align="center">
-            <Button color='primary' onClick={ () => {tollPost(); notify(); setToggled(!isToggled)}}>CONFIRM</Button>
+            <Button color='primary' onClick={ () => {tollPost(); setToggled(!isToggled)}}>CONFIRM</Button>
             <Button onClick={() => tollModalInsert()}>Cancel</Button>
           </diV>
          

@@ -107,7 +107,7 @@ const DynamicChart = () => {
       }, []);
       return(
           <div className="App">
-             <h1> Total Amount :  totalPrice  </h1>
+             <h1> Total Amount  </h1>
               <div style={{ width : '80%', height : '100vh', display : 'inline-flex', position : 'fixed'}}>
                   <Bar
                     data={chartData}
